@@ -1,0 +1,288 @@
+
+rolly_frog.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+icescreen
+  rotate: false
+  xy: 1, 212
+  size: 480, 800
+  orig: 480, 800
+  offset: 0, 0
+  index: -1
+laserbackground
+  rotate: false
+  xy: 483, 362
+  size: 438, 650
+  orig: 438, 650
+  offset: 0, 0
+  index: -1
+roomSpike
+  rotate: false
+  xy: 483, 7
+  size: 354, 353
+  orig: 354, 353
+  offset: 0, 0
+  index: -1
+laser_bg
+  rotate: false
+  xy: 923, 692
+  size: 64, 320
+  orig: 64, 320
+  offset: 0, 0
+  index: -1
+laser_over
+  rotate: false
+  xy: 839, 40
+  size: 64, 320
+  orig: 64, 320
+  offset: 0, 0
+  index: -1
+think
+  rotate: false
+  xy: 1, 89
+  size: 151, 121
+  orig: 151, 121
+  offset: 0, 0
+  index: -1
+meteor
+  rotate: false
+  xy: 154, 108
+  size: 114, 102
+  orig: 114, 102
+  offset: 0, 0
+  index: -1
+shieldGlow
+  rotate: false
+  xy: 1, 1
+  size: 86, 86
+  orig: 86, 86
+  offset: 0, 0
+  index: -1
+2x
+  rotate: false
+  xy: 270, 140
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+shield
+  rotate: false
+  xy: 342, 140
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+slow
+  rotate: false
+  xy: 923, 620
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+frogColorDressDie
+  rotate: false
+  xy: 89, 43
+  size: 44, 44
+  orig: 44, 44
+  offset: 0, 0
+  index: -1
+frogMinionDie
+  rotate: false
+  xy: 414, 166
+  size: 44, 44
+  orig: 44, 44
+  offset: 0, 0
+  index: -1
+frogPinkDressDie
+  rotate: false
+  xy: 923, 574
+  size: 44, 44
+  orig: 44, 44
+  offset: 0, 0
+  index: -1
+frogRedMinionDie
+  rotate: false
+  xy: 923, 528
+  size: 44, 44
+  orig: 44, 44
+  offset: 0, 0
+  index: -1
+frogWarriorDie
+  rotate: false
+  xy: 923, 482
+  size: 40, 44
+  orig: 40, 44
+  offset: 0, 0
+  index: -1
+mathDie
+  rotate: false
+  xy: 923, 436
+  size: 40, 44
+  orig: 40, 44
+  offset: 0, 0
+  index: -1
+frogAlienDie
+  rotate: false
+  xy: 89, 1
+  size: 40, 40
+  orig: 40, 40
+  offset: 0, 0
+  index: -1
+frogNurseDie
+  rotate: false
+  xy: 923, 394
+  size: 40, 40
+  orig: 40, 40
+  offset: 0, 0
+  index: -1
+frogOldDie
+  rotate: false
+  xy: 839, 2
+  size: 40, 36
+  orig: 40, 36
+  offset: 0, 0
+  index: -1
+frogPrinceDie
+  rotate: false
+  xy: 270, 98
+  size: 40, 40
+  orig: 40, 40
+  offset: 0, 0
+  index: -1
+frogTerrorDie
+  rotate: false
+  xy: 312, 98
+  size: 40, 40
+  orig: 40, 40
+  offset: 0, 0
+  index: -1
+mumDie
+  rotate: false
+  xy: 354, 102
+  size: 40, 36
+  orig: 40, 36
+  offset: 0, 0
+  index: -1
+gun
+  rotate: false
+  xy: 989, 972
+  size: 30, 40
+  orig: 30, 40
+  offset: 0, 0
+  index: -1
+spike
+  rotate: false
+  xy: 989, 930
+  size: 30, 40
+  orig: 30, 40
+  offset: 0, 0
+  index: -1
+frogGaoDie
+  rotate: false
+  xy: 923, 355
+  size: 36, 37
+  orig: 36, 37
+  offset: 0, 0
+  index: -1
+swatDie
+  rotate: false
+  xy: 969, 581
+  size: 36, 37
+  orig: 36, 37
+  offset: 0, 0
+  index: -1
+frogJeremiDie
+  rotate: false
+  xy: 969, 543
+  size: 36, 36
+  orig: 36, 36
+  offset: 0, 0
+  index: -1
+laserDie
+  rotate: false
+  xy: 414, 128
+  size: 36, 36
+  orig: 36, 36
+  offset: 0, 0
+  index: -1
+laserDiePink
+  rotate: false
+  xy: 881, 2
+  size: 36, 36
+  orig: 36, 36
+  offset: 0, 0
+  index: -1
+laserDieRed
+  rotate: false
+  xy: 905, 317
+  size: 36, 36
+  orig: 36, 36
+  offset: 0, 0
+  index: -1
+laserDieYellow
+  rotate: false
+  xy: 905, 279
+  size: 36, 36
+  orig: 36, 36
+  offset: 0, 0
+  index: -1
+spikeDie
+  rotate: false
+  xy: 905, 241
+  size: 36, 36
+  orig: 36, 36
+  offset: 0, 0
+  index: -1
+
+rolly_frog2.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+roomMath
+  rotate: false
+  xy: 1, 605
+  size: 334, 336
+  orig: 334, 336
+  offset: 0, 0
+  index: -1
+roomMum
+  rotate: false
+  xy: 337, 605
+  size: 337, 336
+  orig: 337, 336
+  offset: 0, 0
+  index: -1
+roomLaser
+  rotate: false
+  xy: 676, 603
+  size: 339, 338
+  orig: 339, 338
+  offset: 0, 0
+  index: -1
+roomSpikeBg
+  rotate: false
+  xy: 1, 133
+  size: 470, 470
+  orig: 470, 470
+  offset: 0, 0
+  index: -1
+mathbackground
+  rotate: false
+  xy: 473, 1
+  size: 473, 600
+  orig: 473, 600
+  offset: 0, 0
+  index: -1
+
+rolly_frog3.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+spikebackground
+  rotate: false
+  xy: 1, 1
+  size: 640, 640
+  orig: 640, 640
+  offset: 0, 0
+  index: -1
