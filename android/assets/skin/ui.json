@@ -1,0 +1,73 @@
+{
+	com.badlogic.gdx.graphics.g2d.BitmapFont: { 
+		default-font: { file: label.fnt } 
+	},
+	
+	com.badlogic.gdx.graphics.Color: {
+	green: { a: 1, b: 0, g: 1, r: 0 },
+	white: { a: 1, b: 1, g: 1, r: 1 },
+	red: { a: 1, b: 0, g: 0, r: 1 },
+	black: { a: 1, b: 0, g: 0, r: 0 }
+   },
+   
+   com.badlogic.gdx.scenes.scene2d.ui.Label$LabelStyle: {
+	default: { font: default-font, fontColor: white }
+  },
+
+	com.badlogic.gdx.scenes.scene2d.ui.Button$ButtonStyle: {
+		play: { up: play-up, down: play-down },
+        rate: { up: rate-up, down: rate-down },
+        leaderboard: { up: leaderboard-up, down: leaderboard-down },
+        shop: { up: shop-up, down: shop-down }, 
+        moregold: { up: moregold-up, down: moregold-down },
+        leaderboardtxt: {up: leaderboardtxt-up, down: leaderboardtxt-down },
+		vol: { up: vol-up, down: vol-down },
+		mute: { up: mute-up, down: mute-down },
+		replay: { up: replay-up, down: replay-down },
+		pause: { up:pause-up, down: pause-down },
+		menu: { up: pause_menu-up, down: pause_menu-down },
+		resume: { up: resume-up, down: resume-down }, 
+		back: { up: back-up, down: back-down },
+		reMenu: { up: reMenu-up, down: reMenu-down },
+		
+		stinkyMouth: { up: stinkyMouth-up, down: stinkyMouth-down },
+		crazySpace: { up: crazySpace-up, down: crazySpace-down },
+		//rollyMummy: { up: rollyMummy-up, down: rollyMummy-down },
+		fatherOfMath: { up: fatherOfMath-up, down: fatherOfMath-down },
+		//swat: { up: swat-up, down: swat-down },
+		
+		spikeLB : { up: spikeLB-up, down: spikeLB-down },
+		laserLB: { up: laserLB-up, down: laserLB-down },
+		mathLB: { up: mathLB-up, down: mathLB-down },
+		
+		lock: { up: lock-up, down: lock-down }, 
+		yes: { up: yes-up, down: yes-down },
+		no: { up: no-up, down: no-down },
+        button: { up: but-up, down: but-down },
+        
+        gold400: { up: gold400-up, down: gold400-down },
+        gold1000: { up: gold1000-up, down: gold1000-down },
+        gold3000: { up: gold3000-up, down: gold3000-down },
+	},
+	
+	com.badlogic.gdx.scenes.scene2d.ui.ScrollPane$ScrollPaneStyle: {
+	default: { vScroll: vscroll, background: scrollBg, vScrollKnob: vscrollKnob }
+    },
+
+	com.badlogic.gdx.scenes.scene2d.ui.Image: {
+		background: { drawable: background },
+        rollyfrog: { drawable: rollyfrog },
+        spiral: { drawable: spiral },
+        scorePanle: { drawable: scorePanel },
+        panel: { drawable: panel },
+        coin: { drawable: coin },
+        highscore: { drawable: highscore },
+        gameover: { drawable: gameover },
+        help: { drawable: help },
+        yes-up: { drawable: yes-up },
+        scoreboard: { drawable: scoreboard },
+        drag: { drawable: drag },
+        tap: { drawable: tap },
+        adsTxt: { drawable: adsTxt },
+	},
+}
