@@ -20,8 +20,8 @@ import vn.com.tuanminh.rollyfrog.boost.Shield;
 import vn.com.tuanminh.rollyfrog.boost.Slow;
 import vn.com.tuanminh.rollyfrog.boost.X5;
 import vn.com.tuanminh.rollyfrog.event.EventHandler;
-import vn.com.tuanminh.rollyfrog.mode.GameMode;
-import vn.com.tuanminh.rollyfrog.mode.GameMode.STATE;
+import vn.com.tuanminh.rollyfrog.mode.BaseGameMode;
+import vn.com.tuanminh.rollyfrog.mode.BaseGameMode.STATE;
 import vn.com.tuanminh.rollyfrog.mode.LaserMode;
 import vn.com.tuanminh.rollyfrog.object.Frog;
 import vn.com.tuanminh.rollyfrog.object.MathSpawner;
@@ -62,7 +62,7 @@ public class GameRenderer implements Disposable {
 	// General stuffs
 	private ScreenManager game;
 	private GameWorld gameWorld;
-	private GameMode mode;
+	private BaseGameMode mode;
 	private World b2dWorld;
 	private OrthographicCamera camGame;
 	private Box2DDebugRenderer debug;

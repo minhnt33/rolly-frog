@@ -14,7 +14,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Disposable;
 
-public abstract class GameMode implements Disposable {
+public abstract class BaseGameMode implements Disposable {
 	// Shared Objects
 	protected World b2dWorld;
 	protected EditorWorld eWorld;
@@ -40,7 +40,7 @@ public abstract class GameMode implements Disposable {
 	protected STATE curState;
 	protected int score;
 
-	public GameMode() {
+	public BaseGameMode() {
 		createGeneralStuff();
 		createSpecificStuff();
 		frog.getBody().applyForceToCenter(new Vector2(-frog.getMaxSpeed(), 0), true);
@@ -107,8 +107,8 @@ public abstract class GameMode implements Disposable {
 		b2dWorld.setGravity(new Vector2(0, newGravity));
 	}
 
-	public void score(int increment) {
-		score += increment;
+	public void score() {
+		score += Const.SCORE_INCREMENT;
 	}
 
 	public void reset() {

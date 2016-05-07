@@ -1,7 +1,7 @@
 package vn.com.tuanminh.rollyfrog.object;
 
 import vn.com.tuanminh.rollyfrog.game.Box2dContact;
-import vn.com.tuanminh.rollyfrog.mode.GameMode;
+import vn.com.tuanminh.rollyfrog.mode.BaseGameMode;
 import vn.com.tuanminh.rollyfrog.mode.SpikeMode;
 import vn.com.tuanminh.rollyfrog.utils.Const;
 
@@ -17,7 +17,7 @@ public class SpikeSpawner extends ObstacleSpawner {
 	private int minPerGroup = 0;
 	private int maxPerGroup = 0;
 
-	public SpikeSpawner(GameMode mode) {
+	public SpikeSpawner(BaseGameMode mode) {
 		super(mode);
 		this.mode = (SpikeMode) mode;
 		// Spawn for first time
@@ -70,12 +70,12 @@ public class SpikeSpawner extends ObstacleSpawner {
 			this.spawnCase(maxOneTime, minGroup, maxGroup, minPerGroup,
 					maxPerGroup, false);
 
-			mode.score(1);
+			mode.score();
 			Box2dContact.isCollided = false;
 		}
 
 		if (Box2dContact.isClonerScore) {
-			mode.score(1);
+			mode.score();
 			Box2dContact.isClonerScore = false;
 		}
 	}

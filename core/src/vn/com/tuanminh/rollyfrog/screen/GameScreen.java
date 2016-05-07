@@ -1,25 +1,7 @@
 package vn.com.tuanminh.rollyfrog.screen;
 
-import vn.com.tuanminh.frogunnerframe.screens.AbstractScreen;
-import vn.com.tuanminh.frogunnerframe.screens.ScreenManager;
-import vn.com.tuanminh.frogunnerframe.transitions.ScreenTransition;
-import vn.com.tuanminh.frogunnerframe.transitions.ScreenTransitionFade;
-import vn.com.tuanminh.frogunnerframe.utils.TimeHelper;
-import vn.com.tuanminh.rollyfrog.game.Assets;
-import vn.com.tuanminh.rollyfrog.game.GameRenderer;
-import vn.com.tuanminh.rollyfrog.game.GameWorld;
-import vn.com.tuanminh.rollyfrog.game.InputHandler;
-import vn.com.tuanminh.rollyfrog.mode.GameMode;
-import vn.com.tuanminh.rollyfrog.mode.GameMode.STATE;
-import vn.com.tuanminh.rollyfrog.mode.LaserMode;
-import vn.com.tuanminh.rollyfrog.mode.MathMode;
-import vn.com.tuanminh.rollyfrog.mode.MummyMode;
-import vn.com.tuanminh.rollyfrog.mode.SpikeMode;
-import vn.com.tuanminh.rollyfrog.mode.SwatMode;
-import vn.com.tuanminh.rollyfrog.utils.AudioManager;
-import vn.com.tuanminh.rollyfrog.utils.Const;
-import vn.com.tuanminh.rollyfrog.utils.GamePreferences;
-import vn.com.tuanminh.rollyfrog.utils.Utils;
+import static com.badlogic.gdx.scenes.scene2d.actions.Actions.forever;
+import static com.badlogic.gdx.scenes.scene2d.actions.Actions.run;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
@@ -37,10 +19,29 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 
-import static com.badlogic.gdx.scenes.scene2d.actions.Actions.*;
+import vn.com.tuanminh.frogunnerframe.screens.AbstractScreen;
+import vn.com.tuanminh.frogunnerframe.screens.ScreenManager;
+import vn.com.tuanminh.frogunnerframe.transitions.ScreenTransition;
+import vn.com.tuanminh.frogunnerframe.transitions.ScreenTransitionFade;
+import vn.com.tuanminh.frogunnerframe.utils.TimeHelper;
+import vn.com.tuanminh.rollyfrog.game.Assets;
+import vn.com.tuanminh.rollyfrog.game.GameRenderer;
+import vn.com.tuanminh.rollyfrog.game.GameWorld;
+import vn.com.tuanminh.rollyfrog.game.InputHandler;
+import vn.com.tuanminh.rollyfrog.mode.BaseGameMode;
+import vn.com.tuanminh.rollyfrog.mode.BaseGameMode.STATE;
+import vn.com.tuanminh.rollyfrog.mode.LaserMode;
+import vn.com.tuanminh.rollyfrog.mode.MathMode;
+import vn.com.tuanminh.rollyfrog.mode.MummyMode;
+import vn.com.tuanminh.rollyfrog.mode.SpikeMode;
+import vn.com.tuanminh.rollyfrog.mode.SwatMode;
+import vn.com.tuanminh.rollyfrog.utils.AudioManager;
+import vn.com.tuanminh.rollyfrog.utils.Const;
+import vn.com.tuanminh.rollyfrog.utils.GamePreferences;
+import vn.com.tuanminh.rollyfrog.utils.Utils;
 
 public class GameScreen extends AbstractScreen {
-	private GameMode mode;
+	private BaseGameMode mode;
 	private GameWorld gameWorld;
 	private GameRenderer renderer;
 	private InputHandler gameInput;
@@ -84,6 +85,7 @@ public class GameScreen extends AbstractScreen {
 		Const.gameCount++;
 		Gdx.input.setCatchBackKey(true);
 		Music bgMusic = null;
+
 		if (LevelScreen.modeID == Const.SPIKE_MODE_ID) {
 			mode = new SpikeMode();
 			bgMusic = Assets.instance.music.spikeMode;
@@ -187,8 +189,7 @@ public class GameScreen extends AbstractScreen {
 
 		// No
 		noBut = new Button(skin, "no");
-		noBut.setPosition(panelX + dialogPanel.getWidth() - noBut.getWidth()
-				- 30f, panelY + 10f);
+		noBut.setPosition(panelX + dialogPanel.getWidth() - noBut.getWidth() - 30f, panelY + 10f);
 		noBut.addListener(new ChangeListener() {
 
 			@Override
@@ -206,8 +207,7 @@ public class GameScreen extends AbstractScreen {
 					@Override
 					public void run() {
 						// TODO Auto-generated method stub
-						reCountLabel.setText(""
-								+ (3 - timer.getRunTimeSeconds()));
+						reCountLabel.setText("" + (3 - timer.getRunTimeSeconds()));
 						if (timer.getRunTimeMillis() > Const.PAUSED_TIME) {
 							AudioManager.instance.unpauseMusic();
 							mode.setState(STATE.RUNNING);

@@ -5,7 +5,7 @@ import vn.com.tuanminh.rollyfrog.utils.Const;
 
 import com.badlogic.gdx.Gdx;
 
-public class SwatMode extends GameMode {
+public class SwatMode extends BaseGameMode {
 
 	@Override
 	public void dispose() {

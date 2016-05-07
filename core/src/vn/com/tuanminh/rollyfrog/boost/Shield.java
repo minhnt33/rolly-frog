@@ -6,7 +6,7 @@ import vn.com.tuanminh.frogunnerframe.box2dhelper.B2dDef.DefBody;
 import vn.com.tuanminh.frogunnerframe.utils.TimeHelper;
 import vn.com.tuanminh.rollyfrog.game.Assets;
 import vn.com.tuanminh.rollyfrog.game.Box2dContact;
-import vn.com.tuanminh.rollyfrog.mode.GameMode;
+import vn.com.tuanminh.rollyfrog.mode.BaseGameMode;
 import vn.com.tuanminh.rollyfrog.object.Frog;
 import vn.com.tuanminh.rollyfrog.object.BaseObject;
 import vn.com.tuanminh.rollyfrog.utils.Const;
@@ -23,7 +23,7 @@ public class Shield extends BaseObject implements Boost {
 	private Frog frog;
 	private TimeHelper timer;
 
-	public Shield(GameMode mode, BoostHandler handler, World world, float x,
+	public Shield(BaseGameMode mode, BoostHandler handler, World world, float x,
 			float y, float radius) {
 		super(world, x, y, radius);
 		// this.mode = mode;

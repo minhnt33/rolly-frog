@@ -4,12 +4,12 @@ import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 
 import vn.com.tuanminh.rollyfrog.game.Box2dContact;
-import vn.com.tuanminh.rollyfrog.mode.GameMode;
+import vn.com.tuanminh.rollyfrog.mode.BaseGameMode;
 import vn.com.tuanminh.rollyfrog.utils.Const;
 
 public class MummySpawner extends ObstacleSpawner {
 
-	public MummySpawner(GameMode mode) {
+	public MummySpawner(BaseGameMode mode) {
 		super(mode);
 		// Spawn gun for the first time
 		this.spawnCase(Const.LASER_MAX_ONE_TIME_1, Const.LASER_MIN_GROUP_1,

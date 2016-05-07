@@ -1,7 +1,7 @@
 package vn.com.tuanminh.rollyfrog.utils;
 
 import vn.com.tuanminh.frogunnerframe.tweens.SpriteAccessor;
-import vn.com.tuanminh.rollyfrog.mode.GameMode;
+import vn.com.tuanminh.rollyfrog.mode.BaseGameMode;
 import vn.com.tuanminh.rollyfrog.mode.LaserMode;
 import vn.com.tuanminh.rollyfrog.object.Gun;
 import vn.com.tuanminh.rollyfrog.object.LaserBody;
@@ -29,7 +29,7 @@ public class MovableLaser {
 	private Gun gun;
 	private LaserBody laserBd;
 
-	public MovableLaser(GameMode mode, LaserHandler handler, TextureRegion bgReg, TextureRegion overReg, Color color,
+	public MovableLaser(BaseGameMode mode, LaserHandler handler, TextureRegion bgReg, TextureRegion overReg, Color color,
 			Gun gun) {
 		this.mode = (LaserMode) mode;
 		this.handler = handler;

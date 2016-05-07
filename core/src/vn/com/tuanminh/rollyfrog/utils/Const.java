@@ -18,6 +18,9 @@ public class Const {
 	public static final int POSITION_ITERATIONS = 20;
 	public static final Vector2 CENTER_POINT = new Vector2(160f / PPM, GAME_HEIGHT / 2 / PPM);
 
+	//Score Increament
+	public static final int SCORE_INCREMENT = 2;
+	
 	// Amount of mode and frog
 	public static final int NUMBER_OF_MODE = 3;
 	public static final int NUMBER_OF_FROG = 23;

@@ -1,7 +1,7 @@
 package vn.com.tuanminh.rollyfrog.boost;
 
 import vn.com.tuanminh.frogunnerframe.utils.TimeHelper;
-import vn.com.tuanminh.rollyfrog.mode.GameMode;
+import vn.com.tuanminh.rollyfrog.mode.BaseGameMode;
 import vn.com.tuanminh.rollyfrog.object.Frog;
 import vn.com.tuanminh.rollyfrog.utils.Const;
 
@@ -11,7 +11,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.World;
 
 public class BoostHandler {
-	private GameMode mode;
+	private BaseGameMode mode;
 	private Boost curBoost;
 	private World b2dWorld;
 	private TimeHelper timer;
@@ -20,7 +20,7 @@ public class BoostHandler {
 	public float timeGap = 20000; // ms
 	public boolean hasBoost = false;
 
-	public BoostHandler(GameMode mode) {
+	public BoostHandler(BaseGameMode mode) {
 		this.mode = mode;
 		b2dWorld = mode.getBox2DWorld();
 		frog = mode.getFrog();

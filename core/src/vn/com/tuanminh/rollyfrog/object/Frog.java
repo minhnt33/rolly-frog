@@ -3,8 +3,8 @@ package vn.com.tuanminh.rollyfrog.object;
 import vn.com.tuanminh.frogunnerframe.box2dhelper.B2dDef;
 import vn.com.tuanminh.frogunnerframe.box2dhelper.B2dDef.DefBody;
 import vn.com.tuanminh.rollyfrog.game.Assets;
-import vn.com.tuanminh.rollyfrog.mode.GameMode;
-import vn.com.tuanminh.rollyfrog.mode.GameMode.STATE;
+import vn.com.tuanminh.rollyfrog.mode.BaseGameMode;
+import vn.com.tuanminh.rollyfrog.mode.BaseGameMode.STATE;
 import vn.com.tuanminh.rollyfrog.mode.LaserMode;
 import vn.com.tuanminh.rollyfrog.mode.MathMode;
 import vn.com.tuanminh.rollyfrog.mode.SpikeMode;
@@ -17,14 +17,14 @@ import com.badlogic.gdx.physics.box2d.CircleShape;
 import com.badlogic.gdx.physics.box2d.World;
 
 public class Frog extends BaseObject {
-	private GameMode mode;
+	private BaseGameMode mode;
 	private float maxSpeed;
 	private int maxLife = 1;
 	public boolean isDied = false;
 	public boolean isSlow = false;
 	public boolean isShield = false;
 
-	public Frog(GameMode mode, World world, float x, float y, float radius) {
+	public Frog(BaseGameMode mode, World world, float x, float y, float radius) {
 		super(world, x, y, radius);
 		this.mode = mode;
 		createBody();

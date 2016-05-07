@@ -7,7 +7,7 @@ import vn.com.tuanminh.rollyfrog.utils.Const;
 
 import com.badlogic.gdx.Gdx;
 
-public class MummyMode extends GameMode {
+public class MummyMode extends BaseGameMode {
 
 	@Override
 	protected void createSpecificStuff() {

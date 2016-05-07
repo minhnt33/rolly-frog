@@ -3,7 +3,7 @@ package vn.com.tuanminh.rollyfrog.object;
 import net.dermetfan.utils.libgdx.graphics.Box2DSprite;
 import vn.com.tuanminh.frogunnerframe.box2dhelper.B2dDef.DefBody;
 import vn.com.tuanminh.rollyfrog.game.Assets;
-import vn.com.tuanminh.rollyfrog.mode.GameMode;
+import vn.com.tuanminh.rollyfrog.mode.BaseGameMode;
 import vn.com.tuanminh.rollyfrog.utils.Const;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -24,7 +24,7 @@ public class MathResultRegion {
 	private RevoluteJointDef revoDef;
 	private boolean isRight = false;
 
-	public MathResultRegion(GameMode mode, Array<Vector2> boundPoints) {
+	public MathResultRegion(BaseGameMode mode, Array<Vector2> boundPoints) {
 		// this.mode = mode;
 		b2dWorld = mode.getBox2DWorld();
 		room = mode.getRoom();

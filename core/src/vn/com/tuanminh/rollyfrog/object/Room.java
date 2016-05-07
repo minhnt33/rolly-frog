@@ -4,7 +4,7 @@ import vn.com.tuanminh.frogunnerframe.box2dhelper.B2dDef;
 import vn.com.tuanminh.frogunnerframe.box2dhelper.B2dDef.DefBody;
 import vn.com.tuanminh.frogunnerframe.box2dhelper.B2dUtils;
 import vn.com.tuanminh.frogunnerframe.utils.Algorithms;
-import vn.com.tuanminh.rollyfrog.mode.GameMode;
+import vn.com.tuanminh.rollyfrog.mode.BaseGameMode;
 import vn.com.tuanminh.rollyfrog.utils.Const;
 
 import com.badlogic.gdx.math.Vector2;
@@ -18,7 +18,7 @@ import com.badlogic.gdx.physics.box2d.joints.RevoluteJointDef;
 import com.badlogic.gdx.utils.Array;
 
 public class Room extends BaseObject {
-	private GameMode mode;
+	private BaseGameMode mode;
 	private Array<Vector2> roomPoints;
 	private Body handBd;
 	private Body ghostBd;
@@ -27,7 +27,7 @@ public class Room extends BaseObject {
 	private Vector2 tmp;
 	private MassData roomMass;
 
-	public Room(World world, float x, float y, float radius, GameMode mode) {
+	public Room(World world, float x, float y, float radius, BaseGameMode mode) {
 		super(world, x, y, radius);
 		this.mode = mode;
 		tmp = new Vector2();

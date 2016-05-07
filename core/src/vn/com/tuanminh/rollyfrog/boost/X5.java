@@ -5,7 +5,7 @@ import vn.com.tuanminh.frogunnerframe.box2dhelper.B2dDef;
 import vn.com.tuanminh.frogunnerframe.box2dhelper.B2dDef.DefBody;
 import vn.com.tuanminh.rollyfrog.game.Assets;
 import vn.com.tuanminh.rollyfrog.game.Box2dContact;
-import vn.com.tuanminh.rollyfrog.mode.GameMode;
+import vn.com.tuanminh.rollyfrog.mode.BaseGameMode;
 import vn.com.tuanminh.rollyfrog.object.Frog;
 import vn.com.tuanminh.rollyfrog.object.BaseObject;
 import vn.com.tuanminh.rollyfrog.utils.Const;
@@ -24,7 +24,7 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Array;
 
 public class X5 extends BaseObject implements Boost {
-	private GameMode mode;
+	private BaseGameMode mode;
 	private BoostHandler handler;
 	private ParticleEffect effect;
 	private Array<Frog> cloners;
@@ -33,7 +33,7 @@ public class X5 extends BaseObject implements Boost {
 	private int dieCount = 0;
 	private final float initForce = 2.5f;
 
-	public X5(GameMode mode, BoostHandler handler, World world, float x,
+	public X5(BaseGameMode mode, BoostHandler handler, World world, float x,
 			float y, float radius) {
 		super(world, x, y, radius);
 		this.mode = mode;

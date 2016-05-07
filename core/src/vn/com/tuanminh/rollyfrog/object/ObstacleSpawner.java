@@ -1,6 +1,6 @@
 package vn.com.tuanminh.rollyfrog.object;
 
-import vn.com.tuanminh.rollyfrog.mode.GameMode;
+import vn.com.tuanminh.rollyfrog.mode.BaseGameMode;
 import vn.com.tuanminh.rollyfrog.utils.Const;
 
 import com.badlogic.gdx.math.MathUtils;
@@ -10,7 +10,7 @@ import com.badlogic.gdx.physics.box2d.joints.RevoluteJointDef;
 import com.badlogic.gdx.utils.Array;
 
 public abstract class ObstacleSpawner {
-	protected GameMode mode;
+	protected BaseGameMode mode;
 	protected EditorWorld eWorld;
 	protected World b2dWorld;
 	protected Room room;
@@ -20,7 +20,7 @@ public abstract class ObstacleSpawner {
 	protected int slot[];
 	protected RevoluteJointDef revoDef;
 
-	public ObstacleSpawner(GameMode mode) {
+	public ObstacleSpawner(BaseGameMode mode) {
 		this.mode = mode;
 		this.b2dWorld = mode.getBox2DWorld();
 		this.eWorld = mode.getEditorWorld();

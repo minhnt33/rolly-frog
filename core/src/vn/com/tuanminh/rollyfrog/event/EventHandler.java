@@ -1,7 +1,7 @@
 package vn.com.tuanminh.rollyfrog.event;
 
 import vn.com.tuanminh.frogunnerframe.utils.TimeHelper;
-import vn.com.tuanminh.rollyfrog.mode.GameMode;
+import vn.com.tuanminh.rollyfrog.mode.BaseGameMode;
 import vn.com.tuanminh.rollyfrog.utils.Const;
 import aurelienribon.tweenengine.TweenManager;
 
@@ -9,12 +9,12 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.MathUtils;
 
 public class EventHandler {
-	private GameMode mode;
+	private BaseGameMode mode;
 	private Event event;
 	private TimeHelper timer;
 	public int timeGap = 30000; // ms
 
-	public EventHandler(GameMode mode, TweenManager manager) {
+	public EventHandler(BaseGameMode mode, TweenManager manager) {
 		this.mode = mode;
 		timer = new TimeHelper();
 		if (mode.getID() == Const.SPIKE_MODE_ID)

@@ -2,7 +2,7 @@ package vn.com.tuanminh.rollyfrog.object;
 
 import vn.com.tuanminh.rollyfrog.game.Assets;
 import vn.com.tuanminh.rollyfrog.game.Box2dContact;
-import vn.com.tuanminh.rollyfrog.mode.GameMode;
+import vn.com.tuanminh.rollyfrog.mode.BaseGameMode;
 import vn.com.tuanminh.rollyfrog.mode.LaserMode;
 import vn.com.tuanminh.rollyfrog.utils.AudioManager;
 import vn.com.tuanminh.rollyfrog.utils.Const;
@@ -17,7 +17,7 @@ public class LaserSpawner extends ObstacleSpawner {
 	private LaserMode laserMode;
 	private LaserHandler handler;
 
-	public LaserSpawner(GameMode mode) {
+	public LaserSpawner(BaseGameMode mode) {
 		super(mode);
 		laserMode = (LaserMode) this.mode;
 		handler = laserMode.getLaserHandler();
@@ -31,14 +31,14 @@ public class LaserSpawner extends ObstacleSpawner {
 	public void update(float delta) {
 		// Cloner score
 		if (Box2dContact.isClonerScore) {
-			mode.score(1);
+			mode.score();
 			Box2dContact.isClonerScore = false;
 		}
 
 		// Origin score
 		if (Box2dContact.isCollided && !mode.isGameOver()) {
 			this.fireLaser();
-			mode.score(1);
+			mode.score();
 			Box2dContact.isCollided = false;
 		}
 	}

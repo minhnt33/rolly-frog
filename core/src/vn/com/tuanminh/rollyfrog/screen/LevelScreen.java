@@ -48,8 +48,7 @@ public class LevelScreen extends AbstractScreen {
 
 	public static int modeID = 0;
 	// The level name is the name of level button in ui.json
-	private final String levelName[] = { "stinkyMouth", "crazySpace",
-			"fatherOfMath" };
+	private final String levelName[] = { "stinkyMouth", "crazySpace", "fatherOfMath" };
 	// The index of price = mod id - 3 because
 	private final int levelPrice[] = { Const.MATH_MODE_PRICE };
 	// 2 first mode are ready to play
@@ -114,8 +113,7 @@ public class LevelScreen extends AbstractScreen {
 
 	@Override
 	public void show() {
-		if (!AudioManager.instance.getPlayingMusic().equals(
-				Assets.instance.music.menu))
+		if (!AudioManager.instance.getPlayingMusic().equals(Assets.instance.music.menu))
 			AudioManager.instance.playMusic(Assets.instance.music.menu, 0.7f);
 		Gdx.input.setCatchBackKey(true);
 		stage = new Stage(new StretchViewport(320, Const.GAME_HEIGHT));
@@ -161,10 +159,8 @@ public class LevelScreen extends AbstractScreen {
 		float totalLength = length + goldImg.getWidth() + 5;
 		final Label goldNum = new Label(coinStr, skin);
 		goldNum.setFontScale(0.5f);
-		goldImg.setPosition(320f - totalLength - 10f, Const.GAME_HEIGHT
-				- goldImg.getHeight() - 10f);
-		goldNum.setPosition(goldImg.getX() + goldImg.getWidth() + 5,
-				goldImg.getY() - goldImg.getHeight() / 2);
+		goldImg.setPosition(320f - totalLength - 10f, Const.GAME_HEIGHT - goldImg.getHeight() - 10f);
+		goldNum.setPosition(goldImg.getX() + goldImg.getWidth() + 5, goldImg.getY() - goldImg.getHeight() / 2);
 		goldNum.addAction(forever(run(new Runnable() {
 			@Override
 			public void run() {
@@ -182,8 +178,7 @@ public class LevelScreen extends AbstractScreen {
 			public void changed(ChangeEvent event, Actor actor) {
 				// TODO Auto-generated method stub
 				AudioManager.instance.playSound(Assets.instance.sound.click);
-				game.setScreen(new MenuScreen(game),
-						ScreenTransitionFade.init(0.2f));
+				game.setScreen(new MenuScreen(game), ScreenTransitionFade.init(0.2f));
 			}
 
 		});
@@ -205,16 +200,13 @@ public class LevelScreen extends AbstractScreen {
 
 		if (!checkLock(id)) {
 			final Button lockBut = new Button(skin, "lock");
-			float posX = button.getX() + button.getWidth() / 2
-					- lockBut.getWidth() / 2;
-			float posY = button.getY() + button.getHeight() / 2
-					- lockBut.getHeight() / 2;
+			float posX = button.getX() + button.getWidth() / 2 - lockBut.getWidth() / 2;
+			float posY = button.getY() + button.getHeight() / 2 - lockBut.getHeight() / 2;
 			lockBut.setPosition(posX, posY);
 			lockBut.addListener(new ChangeListener() {
 				@Override
 				public void changed(ChangeEvent event, Actor actor) {
-					AudioManager.instance
-							.playSound(Assets.instance.sound.click);
+					AudioManager.instance.playSound(Assets.instance.sound.click);
 					Group window = buildUnlockWindow(button, lockBut, id);
 					stack.add(window);
 				}
@@ -253,16 +245,14 @@ public class LevelScreen extends AbstractScreen {
 		return isUnlocked;
 	}
 
-	private Group buildUnlockWindow(final Button levelBut,
-			final Button lockBut, final int id) {
+	private Group buildUnlockWindow(final Button levelBut, final Button lockBut, final int id) {
 		final Group table = new Group();
 		table.setSize(300f, 160f);
 		table.getColor().a = 0;
 		table.addAction(fadeIn(0.2f));
 		// Background window
 		Image winBg = new Image(skin, "panel");
-		winBg.setPosition(160f - winBg.getWidth() / 2, Const.GAME_HEIGHT / 2
-				- winBg.getHeight() / 2);
+		winBg.setPosition(160f - winBg.getWidth() / 2, Const.GAME_HEIGHT / 2 - winBg.getHeight() / 2);
 		table.addActor(winBg);
 
 		// Label
@@ -292,8 +282,7 @@ public class LevelScreen extends AbstractScreen {
 			yesBut.addListener(new ChangeListener() {
 				@Override
 				public void changed(ChangeEvent event, Actor actor) {
-					AudioManager.instance
-							.playSound(Assets.instance.sound.click);
+					AudioManager.instance.playSound(Assets.instance.sound.click);
 					// Remove the price label
 					priceLabel.remove();
 					// unlock preference
@@ -301,17 +290,14 @@ public class LevelScreen extends AbstractScreen {
 					// decreasing gold
 					GamePreferences.instance.gold -= levelPrice[id - 3];
 					GamePreferences.instance.save();
-					table.addAction(sequence(fadeOut(0.2f), visible(false),
-							removeActor()));
+					table.addAction(sequence(fadeOut(0.2f), visible(false), removeActor()));
 					lockBut.remove();
 					levelBut.addListener(new ChangeListener() {
 						@Override
 						public void changed(ChangeEvent event, Actor actor) {
-							AudioManager.instance
-									.playSound(Assets.instance.sound.click);
+							AudioManager.instance.playSound(Assets.instance.sound.click);
 							modeID = (Integer) levelBut.getUserObject();
-							ScreenTransition tran = ScreenTransitionFade
-									.init(0.2f);
+							ScreenTransition tran = ScreenTransitionFade.init(0.2f);
 							game.setScreen(new GameScreen(game), tran);
 						}
 					});
@@ -321,15 +307,14 @@ public class LevelScreen extends AbstractScreen {
 		}
 		// No Button
 		Button noBut = new Button(skin, "no");
-		noBut.setPosition(160f - noBut.getWidth() / 2
-				+ ((GamePreferences.instance.gold >= levelPrice[id - 3]) ? offsetX : 0),
+		noBut.setPosition(
+				160f - noBut.getWidth() / 2 + ((GamePreferences.instance.gold >= levelPrice[id - 3]) ? offsetX : 0),
 				Const.GAME_HEIGHT / 2 - noBut.getHeight() / 2 - offsetY);
 		noBut.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
 				AudioManager.instance.playSound(Assets.instance.sound.click);
-				table.addAction(sequence(fadeOut(0.3f), visible(false),
-						removeActor()));
+				table.addAction(sequence(fadeOut(0.3f), visible(false), removeActor()));
 			}
 		});
 		table.addActor(noBut);

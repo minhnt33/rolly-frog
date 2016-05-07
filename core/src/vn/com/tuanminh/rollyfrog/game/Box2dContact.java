@@ -1,6 +1,6 @@
 package vn.com.tuanminh.rollyfrog.game;
 
-import vn.com.tuanminh.rollyfrog.mode.GameMode;
+import vn.com.tuanminh.rollyfrog.mode.BaseGameMode;
 import vn.com.tuanminh.rollyfrog.mode.LaserMode;
 import vn.com.tuanminh.rollyfrog.mode.MathMode;
 import vn.com.tuanminh.rollyfrog.object.Frog;
@@ -21,7 +21,7 @@ import com.badlogic.gdx.physics.box2d.WorldManifold;
 import com.badlogic.gdx.utils.Array;
 
 public class Box2dContact implements ContactListener {
-	private GameMode mode;
+	private BaseGameMode mode;
 	private Frog frog;
 	private Room room;
 	private ObstacleSpawner obSpawner;
@@ -36,7 +36,7 @@ public class Box2dContact implements ContactListener {
 	public Array<Body> dieCloner;
 	private int dieCount = 0;
 
-	public Box2dContact(GameMode mode) {
+	public Box2dContact(BaseGameMode mode) {
 		this.mode = mode;
 		frog = mode.getFrog();
 		room = mode.getRoom();

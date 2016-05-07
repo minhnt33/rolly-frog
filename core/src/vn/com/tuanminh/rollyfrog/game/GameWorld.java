@@ -1,13 +1,13 @@
 package vn.com.tuanminh.rollyfrog.game;
 
-import vn.com.tuanminh.rollyfrog.mode.GameMode;
+import vn.com.tuanminh.rollyfrog.mode.BaseGameMode;
 import vn.com.tuanminh.rollyfrog.utils.Const;
 
 public class GameWorld {
 	private GameRenderer renderer;
-	private GameMode mode;
+	private BaseGameMode mode;
 
-	public GameWorld(GameMode mode) {
+	public GameWorld(BaseGameMode mode) {
 		this.mode = mode;
 	}
 
@@ -27,7 +27,7 @@ public class GameWorld {
 		return renderer;
 	}
 
-	public GameMode getGameMode() {
+	public BaseGameMode getGameMode() {
 		return mode;
 	}
 

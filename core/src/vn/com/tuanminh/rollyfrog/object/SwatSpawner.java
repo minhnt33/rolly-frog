@@ -1,10 +1,10 @@
 package vn.com.tuanminh.rollyfrog.object;
 
-import vn.com.tuanminh.rollyfrog.mode.GameMode;
+import vn.com.tuanminh.rollyfrog.mode.BaseGameMode;
 
 public class SwatSpawner extends ObstacleSpawner {
 
-	public SwatSpawner(GameMode mode) {
+	public SwatSpawner(BaseGameMode mode) {
 		super(mode);
 		// TODO Auto-generated constructor stub
 	}

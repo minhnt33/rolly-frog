@@ -6,7 +6,7 @@ import vn.com.tuanminh.rollyfrog.object.LaserSpawner;
 import vn.com.tuanminh.rollyfrog.utils.Const;
 import vn.com.tuanminh.rollyfrog.utils.LaserHandler;
 
-public class LaserMode extends GameMode {
+public class LaserMode extends BaseGameMode {
 	private LaserHandler handler;
 
 	public enum LEVEL {

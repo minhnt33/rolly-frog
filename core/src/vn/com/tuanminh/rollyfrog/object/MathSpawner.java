@@ -1,7 +1,7 @@
 package vn.com.tuanminh.rollyfrog.object;
 
 import vn.com.tuanminh.rollyfrog.game.Box2dContact;
-import vn.com.tuanminh.rollyfrog.mode.GameMode;
+import vn.com.tuanminh.rollyfrog.mode.BaseGameMode;
 import vn.com.tuanminh.rollyfrog.mode.MathMode;
 
 import com.badlogic.gdx.math.MathUtils;
@@ -31,7 +31,7 @@ public class MathSpawner extends ObstacleSpawner {
 
 	private final int epsilon = 4;
 
-	public MathSpawner(GameMode mode) {
+	public MathSpawner(BaseGameMode mode) {
 		super(mode);
 		mathMode = (MathMode) mode;
 		// formula = this.randomFormula(1, 10, 1f, 0.5f);
@@ -60,7 +60,7 @@ public class MathSpawner extends ObstacleSpawner {
 			}
 			
 			inE = this.randomInequilvalance(from, to, false);
-			mode.score(1);
+			mode.score();
 			Box2dContact.isCollided = false;
 		}
 	}

@@ -1,7 +1,7 @@
 package vn.com.tuanminh.rollyfrog.game;
 
-import vn.com.tuanminh.rollyfrog.mode.GameMode;
-import vn.com.tuanminh.rollyfrog.mode.GameMode.STATE;
+import vn.com.tuanminh.rollyfrog.mode.BaseGameMode;
+import vn.com.tuanminh.rollyfrog.mode.BaseGameMode.STATE;
 import vn.com.tuanminh.rollyfrog.object.Room;
 import vn.com.tuanminh.rollyfrog.utils.AudioManager;
 import vn.com.tuanminh.rollyfrog.utils.Const;
@@ -20,7 +20,7 @@ import com.badlogic.gdx.utils.Array;
 public class InputHandler implements InputProcessor {
 	private GameWorld gameWorld;
 	private GameRenderer renderer;
-	private GameMode mode;
+	private BaseGameMode mode;
 	private World b2dWorld;
 	// private Frog frog;
 	private Room room;
