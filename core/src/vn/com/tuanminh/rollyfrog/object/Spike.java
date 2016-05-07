@@ -13,7 +13,7 @@ import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
 import com.badlogic.gdx.physics.box2d.World;
 
-public class Spike extends GeneralObjects implements Obstacle {
+public class Spike extends BaseObject implements Obstacle {
 	private float angle;
 
 	public Spike(World world, float x, float y, float angle,

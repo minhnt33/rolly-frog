@@ -29,16 +29,9 @@ public class Assets extends AssetHelper {
 		public final BitmapFont small;
 		public final BitmapFont normal;
 
-		// public final BitmapFont large;
-		// public final BitmapFont chalkSmall;
-		// public final BitmapFont chalkNormal;
-
 		public AssetFont() {
 			normal = loadBitmapFont("font/label.fnt", 1f, 1f);
 			small = loadBitmapFont("font/label.fnt", 0.5f, 0.5f);
-			// large = loadBitmapFont("font/label.fnt", 1.5f, 1.5f);
-			// chalkNormal = loadBitmapFont("font/chalkfont.fnt", 1f, 1f);
-			// chalkSmall = loadBitmapFont("font/chalkfont.fnt", 0.5f, 0.5f);
 		}
 	}
 
@@ -201,31 +194,23 @@ public class Assets extends AssetHelper {
 			mathThink = atlas.findRegion("think");
 			scorepane = atlas.findRegion("scorepane");
 
-			TextureRegion tmpFrogDieRegions[] = { spikeDie, laserDie, mumDie,
-					mathDie, swatDie, frogGaoDie, frogGaoDie, frogGaoDie,
-					frogJeremiDie, frogLaserPinkDie, frogLaserRedDie,
-					frogLaserYellowDie, frogOldDie, frogWarriorDie,
-					frogNurseDie, frogAlienDie, frogColorDressDie, frogLolipop,
-					frogMinionDie, frogRedMinionDie, frogPinkDressDie,
-					frogPrinceDie, frogTerrorDie };
+			TextureRegion tmpFrogDieRegions[] = { spikeDie, laserDie, mumDie, mathDie, swatDie, frogGaoDie, frogGaoDie,
+					frogGaoDie, frogJeremiDie, frogLaserPinkDie, frogLaserRedDie, frogLaserYellowDie, frogOldDie,
+					frogWarriorDie, frogNurseDie, frogAlienDie, frogColorDressDie, frogLolipop, frogMinionDie,
+					frogRedMinionDie, frogPinkDressDie, frogPrinceDie, frogTerrorDie };
 
-			TextureRegion tmpFrogRegions[] = { frogSpike, frogLaser, frogMum,
-					frogMath, frogSwat, frogGaoGreen, frogGaoRed,
-					frogGaoYellow, frogJeremi, frogLaserPink, frogLaserRed,
-					frogLaserYellow, frogOld, frogWarrior, frogNurse,
-					frogAlien, frogColorDress, frogLolipop, frogMinion,
-					frogRedMinion, frogPinkDress, frogPrince, frogTerror };
+			TextureRegion tmpFrogRegions[] = { frogSpike, frogLaser, frogMum, frogMath, frogSwat, frogGaoGreen,
+					frogGaoRed, frogGaoYellow, frogJeremi, frogLaserPink, frogLaserRed, frogLaserYellow, frogOld,
+					frogWarrior, frogNurse, frogAlien, frogColorDress, frogLolipop, frogMinion, frogRedMinion,
+					frogPinkDress, frogPrince, frogTerror };
 
 			// Nick name of frog in shop
-			String tmpNickName[] = { "Stuny", "Spacy", "Fromy", "Profy",
-					"SWATy", "Gao Green", "Gao Red", "Gao Yellow", "Jeremi",
-					"Pinky", "Redy", "Yellowy", "Olda Fact", "Frorrior",
-					"Nursy", "Frolien", "Sweetie", "Frolipop", "MiniFrog",
-					"SurfMini", "Dressy", "Princo", "Terrofy" };
+			String tmpNickName[] = { "Stuny", "Spacy", "Fromy", "Profy", "SWATy", "Gao Green", "Gao Red", "Gao Yellow",
+					"Jeremi", "Pinky", "Redy", "Yellowy", "Olda Fact", "Frorrior", "Nursy", "Frolien", "Sweetie",
+					"Frolipop", "MiniFrog", "SurfMini", "Dressy", "Princo", "Terrofy" };
 
-			int tmpFrogPrice[] = { 50, 50, 100, 100, 150, 150, 150, 200, 200,
-					200, 250, 250, 250, 300, 300, 300, 400, 400, 400, 500, 500,
-					500, 500 };
+			int tmpFrogPrice[] = { 50, 50, 100, 100, 150, 150, 150, 200, 200, 200, 250, 250, 250, 300, 300, 300, 400,
+					400, 400, 500, 500, 500, 500 };
 
 			frogRegions = tmpFrogRegions;
 			frogDieRegions = tmpFrogDieRegions;
@@ -239,10 +224,10 @@ public class Assets extends AssetHelper {
 
 		public AssetSkin(TextureAtlas atlas) {
 			mySkin = new Skin(Gdx.files.internal("skin/ui.json"), atlas);
-			mySkin.getFont("default-font").getRegion().getTexture()
-					.setFilter(TextureFilter.Linear, TextureFilter.Linear); // Important:
-																			// smooth
-																			// font
+			mySkin.getFont("default-font").getRegion().getTexture().setFilter(TextureFilter.Linear,
+					TextureFilter.Linear); // Important:
+											// smooth
+											// font
 		}
 	}
 

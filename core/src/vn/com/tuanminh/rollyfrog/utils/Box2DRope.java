@@ -26,8 +26,7 @@ public class Box2DRope {
 	private Vector2 firstPoint;
 	private Vector2 lastPoint;
 
-	public Box2DRope(World world, Vector2 first, Vector2 last, float length,
-			float perLength) {
+	public Box2DRope(World world, Vector2 first, Vector2 last, float length, float perLength) {
 		b2dWorld = world;
 		parts = new Array<Body>();
 		firstPoint = first;
@@ -39,8 +38,7 @@ public class Box2DRope {
 		revoDef.collideConnected = false;
 	}
 
-	public void setRopeProperties(float density, float friction,
-			float restitution) {
+	public void setRopeProperties(float density, float friction, float restitution) {
 		this.density = density;
 		this.friction = friction;
 		this.restitution = restitution;

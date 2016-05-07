@@ -8,7 +8,7 @@ import vn.com.tuanminh.rollyfrog.game.Assets;
 import vn.com.tuanminh.rollyfrog.game.Box2dContact;
 import vn.com.tuanminh.rollyfrog.mode.GameMode;
 import vn.com.tuanminh.rollyfrog.object.Frog;
-import vn.com.tuanminh.rollyfrog.object.GeneralObjects;
+import vn.com.tuanminh.rollyfrog.object.BaseObject;
 import vn.com.tuanminh.rollyfrog.utils.Const;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
@@ -18,7 +18,7 @@ import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
 import com.badlogic.gdx.physics.box2d.CircleShape;
 import com.badlogic.gdx.physics.box2d.World;
 
-public class Slow extends GeneralObjects implements Boost {
+public class Slow extends BaseObject implements Boost {
 	private BoostHandler handler;
 	private Frog frog;
 	private TimeHelper timer;

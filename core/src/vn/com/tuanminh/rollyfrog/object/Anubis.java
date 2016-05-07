@@ -15,12 +15,11 @@ import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
 import com.badlogic.gdx.physics.box2d.CircleShape;
 import com.badlogic.gdx.physics.box2d.World;
 
-public class Anubis extends GeneralObjects implements Obstacle {
+public class Anubis extends BaseObject implements Obstacle {
 	private float angle;
 	private Sprite sprite;
 
-	public Anubis(World world, float x, float y, float radius,
-			float angle, EditorWorld eWorld, TweenManager manager) {
+	public Anubis(World world, float x, float y, float radius, float angle, EditorWorld eWorld, TweenManager manager) {
 		super(world, x, y, radius);
 		this.angle = angle;
 		this.createObstacleBody();
@@ -28,8 +27,7 @@ public class Anubis extends GeneralObjects implements Obstacle {
 		// Tweening
 		sprite.setAlpha(0);
 		Tween.registerAccessor(Sprite.class, new SpriteAccessor());
-		Tween.to(sprite, SpriteAccessor.ALPHA, 0.5f).target(1)
-				.start(manager);
+		Tween.to(sprite, SpriteAccessor.ALPHA, 0.5f).target(1).start(manager);
 	}
 
 	@Override

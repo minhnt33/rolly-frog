@@ -11,14 +11,12 @@ public class Const {
 
 	// General setup
 	public static final boolean isDebug = false;
-	public static final float GAME_HEIGHT = ResolutionHandler.instance
-			.getGameHeightWith(320f);
+	public static final float GAME_HEIGHT = ResolutionHandler.instance.getGameHeightWith(320f);
 	public static float PPM = 160f;
 	public static final float TIME_STEP = 1 / 60f;
 	public static final int VELOCITY_ITERATIONS = 20;
 	public static final int POSITION_ITERATIONS = 20;
-	public static final Vector2 CENTER_POINT = new Vector2(160f / PPM,
-			GAME_HEIGHT / 2 / PPM);
+	public static final Vector2 CENTER_POINT = new Vector2(160f / PPM, GAME_HEIGHT / 2 / PPM);
 
 	// Amount of mode and frog
 	public static final int NUMBER_OF_MODE = 3;

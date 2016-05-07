@@ -118,8 +118,7 @@ public class GameRenderer implements Disposable {
 	private TextureRegion frogRegions[] = Assets.instance.texture.frogRegions;
 	private TextureRegion frogDieRegions[] = Assets.instance.texture.frogDieRegions;
 
-	private TextureRegion frogRegion, dieRegion, roomRegion, bgRegion,
-			iceScreen, shieldGlow;
+	private TextureRegion frogRegion, dieRegion, roomRegion, bgRegion, iceScreen, shieldGlow;
 	private ObstacleSpawner obSpawner;
 
 	// Particle
@@ -139,8 +138,7 @@ public class GameRenderer implements Disposable {
 
 		// Camera
 		camGame = new OrthographicCamera();
-		camGame.setToOrtho(false, 320f / Const.PPM, Const.GAME_HEIGHT
-				/ Const.PPM);
+		camGame.setToOrtho(false, 320f / Const.PPM, Const.GAME_HEIGHT / Const.PPM);
 		camUI = new OrthographicCamera();
 		camUI.setToOrtho(false, 320f, Const.GAME_HEIGHT);
 		batch = new SpriteBatch();
@@ -173,15 +171,12 @@ public class GameRenderer implements Disposable {
 		panel = new Image(skin, "panel");
 		panel.setVisible(false);
 		panel.setSize(240f, 280f);
-		panel.setPosition(160f - panel.getWidth() / 2, Const.GAME_HEIGHT / 2
-				- panel.getHeight() / 2);
+		panel.setPosition(160f - panel.getWidth() / 2, Const.GAME_HEIGHT / 2 - panel.getHeight() / 2);
 
 		// Menu but
 		menuBut = new Button(skin, "menu");
 		menuBut.setVisible(false);
-		menuBut.setPosition(
-				panel.getX() + panel.getWidth() / 2 - menuBut.getWidth() / 2,
-				panel.getY() + 20f);
+		menuBut.setPosition(panel.getX() + panel.getWidth() / 2 - menuBut.getWidth() / 2, panel.getY() + 20f);
 		menuBut.addListener(new ChangeListener() {
 
 			@Override
@@ -189,8 +184,7 @@ public class GameRenderer implements Disposable {
 				// TODO Auto-generated method stub
 				GamePreferences.instance.gold += mode.getScore();
 				GamePreferences.instance.save();
-				game.setScreen(new MenuScreen(game),
-						ScreenTransitionFade.init(0.2f));
+				game.setScreen(new MenuScreen(game), ScreenTransitionFade.init(0.2f));
 			}
 
 		});
@@ -205,8 +199,7 @@ public class GameRenderer implements Disposable {
 		// Resume but
 		resumeBut = new Button(skin, "resume");
 		resumeBut.setVisible(false);
-		resumeBut.setPosition(menuBut.getX(),
-				menuBut.getY() + menuBut.getHeight() + 30f);
+		resumeBut.setPosition(menuBut.getX(), menuBut.getY() + menuBut.getHeight() + 30f);
 		resumeBut.addListener(new ChangeListener() {
 
 			@Override
@@ -223,15 +216,13 @@ public class GameRenderer implements Disposable {
 					@Override
 					public void run() {
 						// TODO Auto-generated method stub
-						reCountLabel.setText(""
-								+ (3 - timer.getRunTimeSeconds()));
+						reCountLabel.setText("" + (3 - timer.getRunTimeSeconds()));
 						if (timer.getRunTimeMillis() > Const.PAUSED_TIME) {
 							AudioManager.instance.unpauseMusic();
 							mode.setState(STATE.RUNNING);
 							timer.resetTime();
 							reCountLabel.setVisible(false);
-							resumeBut.removeAction(resumeBut.getActions()
-									.first());
+							resumeBut.removeAction(resumeBut.getActions().first());
 						}
 					}
 
@@ -243,8 +234,7 @@ public class GameRenderer implements Disposable {
 		// Rate but
 		rateBut = new Button(skin, "rate");
 		rateBut.setVisible(false);
-		rateBut.setPosition(resumeBut.getX(),
-				resumeBut.getY() + resumeBut.getHeight() + 30f);
+		rateBut.setPosition(resumeBut.getX(), resumeBut.getY() + resumeBut.getHeight() + 30f);
 		rateBut.addListener(new ChangeListener() {
 
 			@Override
@@ -259,8 +249,7 @@ public class GameRenderer implements Disposable {
 		pauseBut = new Button(skin, "pause");
 		pauseBut.setVisible(true);
 		pauseBut.setSize(60f, 60f);
-		pauseBut.setPosition(320f - pauseBut.getWidth() - 18f,
-				Const.GAME_HEIGHT - pauseBut.getHeight() - 16f);
+		pauseBut.setPosition(320f - pauseBut.getWidth() - 18f, Const.GAME_HEIGHT - pauseBut.getHeight() - 16f);
 		pauseBut.addListener(new ChangeListener() {
 
 			@Override
@@ -290,8 +279,7 @@ public class GameRenderer implements Disposable {
 	private void createScoreLabel() {
 		Group scoreGroup = new Group();
 		scoreBoard = new Image(skin, "scoreboard");
-		scoreBoard.setPosition(0f, Const.GAME_HEIGHT - scoreBoard.getHeight()
-				- 13f);
+		scoreBoard.setPosition(0f, Const.GAME_HEIGHT - scoreBoard.getHeight() - 13f);
 
 		// score number
 		curScore = new Label("", skin);
@@ -304,8 +292,8 @@ public class GameRenderer implements Disposable {
 				score = "" + mode.getScore();
 				length = Utils.calStringWidth(score, 80f, 0.6f);
 				curScore.setText(score);
-				curScore.setPosition(scoreBoard.getX() + scoreBoard.getWidth()
-						/ 2 - length / 2, scoreBoard.getY() + 40f);
+				curScore.setPosition(scoreBoard.getX() + scoreBoard.getWidth() / 2 - length / 2,
+						scoreBoard.getY() + 40f);
 			}
 
 		})));
@@ -327,30 +315,26 @@ public class GameRenderer implements Disposable {
 		// Tap image
 		tapImg = new Image(skin, "tap");
 
-		tapImg.addAction(forever(sequence(
-				repeat(10, sequence(run(new Runnable() {
+		tapImg.addAction(forever(sequence(repeat(10, sequence(run(new Runnable() {
 
-					@Override
-					public void run() {
-						// TODO Auto-generated method stub
-						tapImg.setPosition(room.getPoints().get(20 + dragNum).x
-								* Const.PPM,
-								room.getPoints().get(20 + dragNum).y
-										* Const.PPM);
-						dragText.setPosition(tapImg.getX() + 20f,
-								tapImg.getY() + 60f);
-						dragNum++;
-					}
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				tapImg.setPosition(room.getPoints().get(20 + dragNum).x * Const.PPM,
+						room.getPoints().get(20 + dragNum).y * Const.PPM);
+				dragText.setPosition(tapImg.getX() + 20f, tapImg.getY() + 60f);
+				dragNum++;
+			}
 
-				}), delay(0.03f))), run(new Runnable() {
+		}), delay(0.03f))), run(new Runnable() {
 
-					@Override
-					public void run() {
-						// TODO Auto-generated method stub
-						dragNum = 0;
-					}
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				dragNum = 0;
+			}
 
-				}), delay(0.5f))));
+		}), delay(0.5f))));
 
 		guideGroup.addActor(tapImg);
 		guideGroup.addActor(dragText);
@@ -373,8 +357,7 @@ public class GameRenderer implements Disposable {
 		float posX = 160f - scorePanel.getWidth() / 2;
 		float posY = Const.GAME_HEIGHT / 2f - scorePanel.getHeight() / 2 + 20f;
 		scorePanel.setPosition(posX, Const.GAME_HEIGHT + 30f);
-		scorePanel
-				.addAction(sequence(delay(delayAll), moveTo(posX, posY, 0.5f)));
+		scorePanel.addAction(sequence(delay(delayAll), moveTo(posX, posY, 0.5f)));
 		scorePane.addActor(scorePanel);
 
 		// Image game over
@@ -407,13 +390,11 @@ public class GameRenderer implements Disposable {
 		scoreLabel.setFontScale(0.6f);
 		scoreLabel.setPosition(posX, scorePanel.getY());
 		scoreLabel.setColor(Color.MAGENTA);
-		scoreLabel
-				.addAction(sequence(delay(delayAll), moveTo(posX, posY, 0.7f)));
+		scoreLabel.addAction(sequence(delay(delayAll), moveTo(posX, posY, 0.7f)));
 		scorePane.addActor(scoreLabel);
 
 		// Label High score
-		String highStr = ""
-				+ GamePreferences.instance.highscores[mode.getID() - 1];
+		String highStr = "" + GamePreferences.instance.highscores[mode.getID() - 1];
 		float highStrLength = Utils.calStringWidth(highStr, 80, 0.6f);
 		posX = 160f - highStrLength / 2;
 		posY = Const.GAME_HEIGHT / 2f - 110f + 20f;
@@ -421,8 +402,7 @@ public class GameRenderer implements Disposable {
 		highLabel.setFontScale(0.6f);
 		highLabel.setPosition(posX, scorePanel.getY());
 		highLabel.setColor(Color.MAGENTA);
-		highLabel
-				.addAction(sequence(delay(delayAll), moveTo(posX, posY, 0.7f)));
+		highLabel.addAction(sequence(delay(delayAll), moveTo(posX, posY, 0.7f)));
 		scorePane.addActor(highLabel);
 		// Add score pane group
 		stageUI.addActor(scorePane);
@@ -433,8 +413,7 @@ public class GameRenderer implements Disposable {
 		coinImg = new Image(skin, "coin");
 		coinLabel = new Label("" + oldCoin, skin);
 		final Label addCoin = new Label("+ " + mode.getScore(), skin);
-		float groupLength = coinImg.getWidth()
-				+ Utils.calStringWidth("" + oldCoin, 80, 0.7f) + gap;
+		float groupLength = coinImg.getWidth() + Utils.calStringWidth("" + oldCoin, 80, 0.7f) + gap;
 
 		posX = 160f - groupLength / 2;
 		posY = Const.GAME_HEIGHT / 2;
@@ -456,10 +435,8 @@ public class GameRenderer implements Disposable {
 				// fade out score pane to display coin
 				scorePane.addAction(fadeOut(0.2f));
 				// animate coin group
-				addCoin.addAction(sequence(
-						delay(0.5f),
-						parallel(moveBy(0f, 120f, 1.5f), scaleTo(1.5f, 1.5f),
-								fadeOut(1.5f))));
+				addCoin.addAction(
+						sequence(delay(0.5f), parallel(moveBy(0f, 120f, 1.5f), scaleTo(1.5f, 1.5f), fadeOut(1.5f))));
 				coinLabel.setText("" + GamePreferences.instance.gold);
 			}
 		}), fadeIn(0.2f)));
@@ -480,8 +457,7 @@ public class GameRenderer implements Disposable {
 		reBut.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
-				if ((Const.gameCount % Const.AD_COUNTER == 0)
-						&& Const.gameCount != 0) {
+				if ((Const.gameCount % Const.AD_COUNTER == 0) && Const.gameCount != 0) {
 					mode.reset();
 					game.handler.showOrLoadInterstital();
 					Const.gameCount = 0;
@@ -516,16 +492,14 @@ public class GameRenderer implements Disposable {
 		reMenuBut.setSize(280f, 50f);
 		posX = 160f - reMenuBut.getWidth() / 2;
 		reMenuBut.setPosition(posX, reMenuY - reMenuBut.getHeight());
-		reMenuBut.addAction(sequence(delay(delayAll),
-				moveTo(posX, reMenuY, 0.5f)));
+		reMenuBut.addAction(sequence(delay(delayAll), moveTo(posX, reMenuY, 0.5f)));
 		butGroup.addActor(reMenuBut);
 		reMenuBut.addListener(new ChangeListener() {
 
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
 				// TODO Auto-generated method stub
-				game.setScreen(new MenuScreen(game),
-						ScreenTransitionFade.init(0.2f));
+				game.setScreen(new MenuScreen(game), ScreenTransitionFade.init(0.2f));
 			}
 
 		});
@@ -570,8 +544,7 @@ public class GameRenderer implements Disposable {
 		roomRegion = Assets.instance.texture.roomLaser;
 		bgRegion = Assets.instance.texture.laserbackground;
 		laserBoom = new ParticleEffect();
-		laserBoom.load(Gdx.files.internal("particle/smoke.p"),
-				Gdx.files.internal("particle"));
+		laserBoom.load(Gdx.files.internal("particle/smoke.p"), Gdx.files.internal("particle"));
 		laserBoom.start();
 		laserBoom.scaleEffect(1 / Const.PPM);
 	}
@@ -630,9 +603,7 @@ public class GameRenderer implements Disposable {
 			batch.setProjectionMatrix(camUI.combined);
 			renderUI(delta);
 			batch.end();
-		}
-
-		if (Const.isDebug) {
+		} else {
 			debug.render(b2dWorld, camGame.combined);
 			shapeRen.setProjectionMatrix(camGame.combined);
 			shapeRen.setAutoShapeType(true);
@@ -644,12 +615,10 @@ public class GameRenderer implements Disposable {
 				Vector2 p = obSpawner.getCirclePoints().get(i);
 				shapeRen.circle(p.x, p.y, 2f / Const.PPM, 10);
 				// draw len col point to room point
-				shapeRen.line(Box2dContact.colPoint, obSpawner
-						.getCirclePoints().get(Box2dContact.oppositeIndex));
+				shapeRen.line(Box2dContact.colPoint, obSpawner.getCirclePoints().get(Box2dContact.oppositeIndex));
 			}
 			// draw collision point
-			shapeRen.circle(Box2dContact.colPoint.x, Box2dContact.colPoint.y,
-					10f / Const.PPM, 10);
+			shapeRen.circle(Box2dContact.colPoint.x, Box2dContact.colPoint.y, 10f / Const.PPM, 10);
 			shapeRen.end();
 		}
 	}
@@ -657,13 +626,10 @@ public class GameRenderer implements Disposable {
 	// Spike Mode rendering
 	private void renderSpikeMode(float delta) {
 		if (gameWorld.isSpikeMode()) {
-			float halfWidthSpikeBg = Assets.instance.texture.roomSpikeBg
-					.getRegionWidth() / 2 / Const.PPM;
-			float halfHeightSpikeBg = Assets.instance.texture.roomSpikeBg
-					.getRegionHeight() / 2 / Const.PPM;
-			batch.draw(Assets.instance.texture.roomSpikeBg, 160f / Const.PPM
-					- halfWidthSpikeBg, Const.GAME_HEIGHT / 2 / Const.PPM
-					- halfHeightSpikeBg, halfWidthSpikeBg, halfHeightSpikeBg,
+			float halfWidthSpikeBg = Assets.instance.texture.roomSpikeBg.getRegionWidth() / 2 / Const.PPM;
+			float halfHeightSpikeBg = Assets.instance.texture.roomSpikeBg.getRegionHeight() / 2 / Const.PPM;
+			batch.draw(Assets.instance.texture.roomSpikeBg, 160f / Const.PPM - halfWidthSpikeBg,
+					Const.GAME_HEIGHT / 2 / Const.PPM - halfHeightSpikeBg, halfWidthSpikeBg, halfHeightSpikeBg,
 					2 * halfWidthSpikeBg, 2 * halfHeightSpikeBg, 1, 1, 0);
 		}
 		gameWorld.getGameMode().getEditorWorld().renderAll(batch, true);
@@ -713,10 +679,7 @@ public class GameRenderer implements Disposable {
 			} else {
 				// Gdx.input.setInputProcessor(stageUI);
 				scoreLabel.setText("" + mode.getScore());
-				highLabel
-						.setText(""
-								+ GamePreferences.instance.highscores[mode
-										.getID() - 1]);
+				highLabel.setText("" + GamePreferences.instance.highscores[mode.getID() - 1]);
 
 				if (mode.isGameOver()) {
 					overImg.setVisible(true);
@@ -751,15 +714,11 @@ public class GameRenderer implements Disposable {
 		float halfHeight = frogRegion.getRegionHeight() / 2 / Const.PPM;
 
 		if (!frog.isDied)
-			batch.draw(frogRegion, frog.getX() - halfWidth, frog.getY()
-					- halfHeight, halfWidth, halfHeight, 2 * halfWidth,
-					2 * halfHeight, 1, 1, frog.getAngle()
-							* MathUtils.radiansToDegrees);
+			batch.draw(frogRegion, frog.getX() - halfWidth, frog.getY() - halfHeight, halfWidth, halfHeight,
+					2 * halfWidth, 2 * halfHeight, 1, 1, frog.getAngle() * MathUtils.radiansToDegrees);
 		else
-			batch.draw(dieRegion, frog.getX() - halfWidth, frog.getY()
-					- halfHeight, halfWidth, halfHeight, 2 * halfWidth,
-					2 * halfHeight, 1, 1, frog.getAngle()
-							* MathUtils.radiansToDegrees);
+			batch.draw(dieRegion, frog.getX() - halfWidth, frog.getY() - halfHeight, halfWidth, halfHeight,
+					2 * halfWidth, 2 * halfHeight, 1, 1, frog.getAngle() * MathUtils.radiansToDegrees);
 	}
 
 	// Boost drawing
@@ -781,11 +740,9 @@ public class GameRenderer implements Disposable {
 					if (x5.getFrogCloneArray().get(i).getBody().getUserData() != null) {
 						Frog cloner = x5.getFrogCloneArray().get(i);
 						batch.setColor(Color.GREEN);
-						batch.draw(frogRegion, cloner.getX() - halfWidth,
-								cloner.getY() - halfHeight, halfWidth,
-								halfHeight, 2 * halfWidth, 2 * halfHeight, 1,
-								1, cloner.getAngle()
-										* MathUtils.radiansToDegrees);
+						batch.draw(frogRegion, cloner.getX() - halfWidth, cloner.getY() - halfHeight, halfWidth,
+								halfHeight, 2 * halfWidth, 2 * halfHeight, 1, 1,
+								cloner.getAngle() * MathUtils.radiansToDegrees);
 						batch.setColor(Color.WHITE);
 					}
 				}
@@ -801,29 +758,16 @@ public class GameRenderer implements Disposable {
 			Shield shield = (Shield) boostHandler.getCurrentBoost();
 
 			if (frog.getMaxLife() == 2) {
-				batch.draw(shieldGlow, frog.getX() - halfWidth, frog.getY()
-						- halfHeight, halfWidth, halfHeight, 2 * halfWidth,
-						2 * halfHeight, 1, 1, frog.getAngle()
-								* MathUtils.radiansToDegrees);
+				batch.draw(shieldGlow, frog.getX() - halfWidth, frog.getY() - halfHeight, halfWidth, halfHeight,
+						2 * halfWidth, 2 * halfHeight, 1, 1, frog.getAngle() * MathUtils.radiansToDegrees);
 
 				batch.setProjectionMatrix(camUI.combined);
-				batch.draw(
-						Assets.instance.texture.boostShield,
-						160f - Assets.instance.texture.boostShield
-								.getRegionWidth() / 2,
-						Const.GAME_HEIGHT
-								/ 2
-								+ Assets.instance.texture.boostShield
-										.getRegionHeight() * 2.5f, 40f, 40f);
+				batch.draw(Assets.instance.texture.boostShield,
+						160f - Assets.instance.texture.boostShield.getRegionWidth() / 2,
+						Const.GAME_HEIGHT / 2 + Assets.instance.texture.boostShield.getRegionHeight() * 2.5f, 40f, 40f);
 
-				Assets.instance.font.small.draw(
-						batch,
-						"" + (6 - shield.getShieldTimer().getRunTimeSeconds()),
-						180f,
-						Const.GAME_HEIGHT
-								/ 2
-								+ Assets.instance.texture.boostShield
-										.getRegionHeight() * 3f);
+				Assets.instance.font.small.draw(batch, "" + (6 - shield.getShieldTimer().getRunTimeSeconds()), 180f,
+						Const.GAME_HEIGHT / 2 + Assets.instance.texture.boostShield.getRegionHeight() * 3f);
 				batch.setProjectionMatrix(camGame.combined);
 			}
 		}
@@ -843,18 +787,15 @@ public class GameRenderer implements Disposable {
 	private void drawRoom(Batch batch) {
 		float halfWidth = roomRegion.getRegionWidth() / 2 / Const.PPM;
 		float halfHeight = roomRegion.getRegionHeight() / 2 / Const.PPM;
-		batch.draw(roomRegion, 160f / Const.PPM - halfWidth, Const.GAME_HEIGHT
-				/ 2 / Const.PPM - halfHeight, halfWidth, halfHeight,
-				2 * halfWidth, 2 * halfHeight, 1, 1, room.getAngle()
-						* MathUtils.radiansToDegrees);
+		batch.draw(roomRegion, 160f / Const.PPM - halfWidth, Const.GAME_HEIGHT / 2 / Const.PPM - halfHeight, halfWidth,
+				halfHeight, 2 * halfWidth, 2 * halfHeight, 1, 1, room.getAngle() * MathUtils.radiansToDegrees);
 	}
 
 	private void drawBackground(Batch batch) {
 		batch.disableBlending();
 		batch.draw(bgRegion, (160 - bgRegion.getRegionWidth() / 2) / Const.PPM,
-				(Const.GAME_HEIGHT / 2 - bgRegion.getRegionHeight() / 2)
-						/ Const.PPM, bgRegion.getRegionWidth() / Const.PPM,
-				bgRegion.getRegionHeight() / Const.PPM);
+				(Const.GAME_HEIGHT / 2 - bgRegion.getRegionHeight() / 2) / Const.PPM,
+				bgRegion.getRegionWidth() / Const.PPM, bgRegion.getRegionHeight() / Const.PPM);
 		batch.enableBlending();
 	}
 
@@ -864,22 +805,20 @@ public class GameRenderer implements Disposable {
 		MathSpawner spawner = (MathSpawner) obSpawner;
 		float width = 100f / Const.PPM;
 		float height = 80f / Const.PPM;
-		batch.draw(thinkRegion, frog.getX() - 30f / Const.PPM, frog.getY()
-				+ 10f / Const.PPM, 0, 0, width, height, 1, 1, 0);
+		batch.draw(thinkRegion, frog.getX() - 30f / Const.PPM, frog.getY() + 10f / Const.PPM, 0, 0, width, height, 1, 1,
+				0);
 		batch.setProjectionMatrix(camUI.combined);
 		font.setColor(Color.BLACK);
 		font.setScale(0.3f);
 		// String formula = "" + spawner.getFormula()[0] + (spawner.isADD() ?
 		// " + " : " x ")
 		// + spawner.getFormula()[1] + " = " + spawner.getFormula()[2];
-		String formula = "" + spawner.getInequilvalance()[0]
-				+ (spawner.isEQUAL() ? " = " : "")
-				+ (spawner.isGREATER() ? " > " : "")
-				+ (spawner.isSMALLER() ? " < " : "")
+		String formula = "" + spawner.getInequilvalance()[0] + (spawner.isEQUAL() ? " = " : "")
+				+ (spawner.isGREATER() ? " > " : "") + (spawner.isSMALLER() ? " < " : "")
 				+ spawner.getInequilvalance()[1];
 		float length = Utils.calStringWidth(formula, 80f, 0.3f);
-		font.draw(batch, formula, (frog.getX() + width / 2) * Const.PPM
-				- length / 2 - 20f, frog.getY() * Const.PPM + 65f);
+		font.draw(batch, formula, (frog.getX() + width / 2) * Const.PPM - length / 2 - 20f,
+				frog.getY() * Const.PPM + 65f);
 		batch.setProjectionMatrix(camGame.combined);
 	}
 
@@ -901,30 +840,4 @@ public class GameRenderer implements Disposable {
 		if (laserBoom != null)
 			laserBoom.dispose();
 	}
-
-	// private Actor getActorByName(Stage stage, String name) {
-	// Array<Actor> actors = stage.getActors();
-	// Actor desiredActor = actors.first();
-	// for (int i = 0; i < actors.size; i++) {
-	// Actor actor = actors.get(i);
-	// if (actor.getName() != null)
-	// if (actor.getName().equalsIgnoreCase(name)) {
-	// desiredActor = actor;
-	// }
-	// }
-	// return desiredActor;
-	// }
-	//
-	// private Actor getActorByName(Group group, String name) {
-	// Array<Actor> actors = group.getChildren();
-	// Actor desiredActor = actors.first();
-	// for (int i = 0; i < actors.size; i++) {
-	// Actor actor = actors.get(i);
-	// if (actor.getName() != null)
-	// if (actor.getName().equalsIgnoreCase(name)) {
-	// desiredActor = actor;
-	// }
-	// }
-	// return desiredActor;
-	// }
 }

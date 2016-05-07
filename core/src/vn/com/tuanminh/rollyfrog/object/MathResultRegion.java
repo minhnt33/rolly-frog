@@ -45,16 +45,14 @@ public class MathResultRegion {
 		for (int i = 0; i < boundPoints.size; i++) {
 			Vector2 dir = boundPoints.get(i).cpy().add(Const.CENTER_POINT);
 			lineShape.setAsBox(lineWidth / 2, lineHeight / 2);
-			defBd.setBodyDef(BodyType.DynamicBody, new Vector2(dir.x / 2,
-					dir.y / 2));
+			defBd.setBodyDef(BodyType.DynamicBody, new Vector2(dir.x / 2, dir.y / 2));
 			defBd.setFixtureDef(lineShape, 0.1f, 0f, 0f);
 			defBd.fdef.filter.maskBits = 0;
 			defBd.bdef.angle = dir.angleRad();
 
 			Body lineBd = b2dWorld.createBody(defBd.bdef);
 			lineBd.createFixture(defBd.fdef);
-			lineBd.setUserData(new Box2DSprite(new Sprite(
-					Assets.instance.texture.mathLine)));
+			lineBd.setUserData(new Box2DSprite(new Sprite(Assets.instance.texture.mathLine)));
 			boundBodies.add(lineBd);
 
 			// revo joint center vs line

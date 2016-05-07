@@ -16,7 +16,7 @@ import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
 import com.badlogic.gdx.physics.box2d.CircleShape;
 import com.badlogic.gdx.physics.box2d.World;
 
-public class Frog extends GeneralObjects {
+public class Frog extends BaseObject {
 	private GameMode mode;
 	private float maxSpeed;
 	private int maxLife = 1;

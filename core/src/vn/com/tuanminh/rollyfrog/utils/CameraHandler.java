@@ -24,8 +24,7 @@ public class CameraHandler {
 	}
 
 	public void zoom(float amount) {
-		Tween.to(zoomAmount, -1, duration).target(amount)
-				.ease(TweenEquations.easeNone).start(manager);
+		Tween.to(zoomAmount, -1, duration).target(amount).ease(TweenEquations.easeNone).start(manager);
 		camera.zoom = zoomAmount.getValue();
 		camera.update();
 	}
@@ -34,7 +33,7 @@ public class CameraHandler {
 		camera.zoom = 1;
 		camera.update();
 	}
-	
+
 	public OrthographicCamera getCamera() {
 		return camera;
 	}

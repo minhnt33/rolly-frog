@@ -24,7 +24,7 @@ public abstract class GameMode implements Disposable {
 	protected BoostHandler boostHandler;
 	protected EventHandler eventHandler;
 	protected Box2dContact contact;
-	public boolean isReset = false; 
+	public boolean isReset = false;
 
 	// Spike Mode
 	protected ObstacleSpawner obSpawner;
@@ -41,10 +41,9 @@ public abstract class GameMode implements Disposable {
 	protected int score;
 
 	public GameMode() {
-		this.createGeneralStuff();
-		this.createSpecificStuff();
-		frog.getBody().applyForceToCenter(new Vector2(-frog.getMaxSpeed(), 0),
-				true);
+		createGeneralStuff();
+		createSpecificStuff();
+		frog.getBody().applyForceToCenter(new Vector2(-frog.getMaxSpeed(), 0), true);
 		// Set contact listener
 		contact = new Box2dContact(this);
 		b2dWorld.setContactListener(contact);
@@ -54,10 +53,8 @@ public abstract class GameMode implements Disposable {
 		b2dWorld = new World(new Vector2(0, curGravity), true);
 		eWorld = new EditorWorld(b2dWorld, "texture/rollyfrog.json", Const.PPM);
 		curState = STATE.GUIDE;
-		room = new Room(b2dWorld, 160f, Const.GAME_HEIGHT / 2,
-				Const.ROOM_RADIUS, this);
-		frog = new Frog(this, b2dWorld, 160f, Const.GAME_HEIGHT / 2,
-				Const.FROG_RADIUS);
+		room = new Room(b2dWorld, 160f, Const.GAME_HEIGHT / 2, Const.ROOM_RADIUS, this);
+		frog = new Frog(this, b2dWorld, 160f, Const.GAME_HEIGHT / 2, Const.FROG_RADIUS);
 		manager = new TweenManager();
 		this.score = 0;
 	}
@@ -92,8 +89,7 @@ public abstract class GameMode implements Disposable {
 		float frameTime = Math.min(delta, 0.25f);
 		accumulator += frameTime;
 		while (accumulator >= Const.TIME_STEP) {
-			b2dWorld.step(Const.TIME_STEP, Const.VELOCITY_ITERATIONS,
-					Const.POSITION_ITERATIONS);
+			b2dWorld.step(Const.TIME_STEP, Const.VELOCITY_ITERATIONS, Const.POSITION_ITERATIONS);
 			if (isUpdateRunning) {
 				manager.update(delta);
 				updateRunning(delta);

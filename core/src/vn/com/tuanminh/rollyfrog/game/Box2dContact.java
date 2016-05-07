@@ -54,10 +54,10 @@ public class Box2dContact implements ContactListener {
 
 		if (mode.isRunning()) {
 			// Room
-			if (((fa.getFilterData().categoryBits == Const.BIT_FROG) && (fb
-					.getFilterData().categoryBits == Const.BIT_ROOM))
-					|| ((fb.getFilterData().categoryBits == Const.BIT_FROG) && (fa
-							.getFilterData().categoryBits == Const.BIT_ROOM))) {
+			if (((fa.getFilterData().categoryBits == Const.BIT_FROG)
+					&& (fb.getFilterData().categoryBits == Const.BIT_ROOM))
+					|| ((fb.getFilterData().categoryBits == Const.BIT_FROG)
+							&& (fa.getFilterData().categoryBits == Const.BIT_ROOM))) {
 				// Play opop sound
 				AudioManager.instance.playSound(Assets.instance.sound.opop);
 
@@ -72,11 +72,9 @@ public class Box2dContact implements ContactListener {
 
 				// Math mode checking
 				if (mode instanceof MathMode) {
-					MathSpawner.check = ((MathSpawner) obSpawner)
-							.checkResult(collidedIndex);
+					MathSpawner.check = ((MathSpawner) obSpawner).checkResult(collidedIndex);
 					if (!MathSpawner.check) {
-						AudioManager.instance
-								.playSound(Assets.instance.sound.die);
+						AudioManager.instance.playSound(Assets.instance.sound.die);
 						frog.loseLife();
 					}
 					isCollided = true;
@@ -85,9 +83,9 @@ public class Box2dContact implements ContactListener {
 
 			// Frog die
 			if (((fa.getFilterData().categoryBits == Const.BIT_FROG)
-					&& (fb.getFilterData().categoryBits == Const.BIT_OBSTACLE) || ((fb
-					.getFilterData().categoryBits == Const.BIT_FROG) && (fa
-					.getFilterData().categoryBits == Const.BIT_OBSTACLE)))) {
+					&& (fb.getFilterData().categoryBits == Const.BIT_OBSTACLE)
+					|| ((fb.getFilterData().categoryBits == Const.BIT_FROG)
+							&& (fa.getFilterData().categoryBits == Const.BIT_OBSTACLE)))) {
 				AudioManager.instance.playSound(Assets.instance.sound.die);
 				if (frog.isShield) {
 					dieCount++;
@@ -95,47 +93,45 @@ public class Box2dContact implements ContactListener {
 					Assets.instance.sound.laser.stop();
 					Assets.instance.sound.opop.stop();
 					if (mode instanceof LaserMode)
-						AudioManager.instance
-								.playSound(Assets.instance.sound.boom);
+						AudioManager.instance.playSound(Assets.instance.sound.boom);
 					frog.loseLife();
 				}
 			}
 
 			// Cloner die
 			if ((((fa.getFilterData().categoryBits == Const.BIT_FROG_CLONER)
-					&& (fb.getFilterData().categoryBits == Const.BIT_OBSTACLE) || ((fb
-					.getFilterData().categoryBits == Const.BIT_FROG_CLONER) && (fa
-					.getFilterData().categoryBits == Const.BIT_OBSTACLE))))) {
+					&& (fb.getFilterData().categoryBits == Const.BIT_OBSTACLE)
+					|| ((fb.getFilterData().categoryBits == Const.BIT_FROG_CLONER)
+							&& (fa.getFilterData().categoryBits == Const.BIT_OBSTACLE))))) {
 				AudioManager.instance.playSound(Assets.instance.sound.die);
 				dieCloner.add(fb.getBody());
 			}
 
 			// Cloner score
-			if (((fa.getFilterData().categoryBits == Const.BIT_ROOM) && (fb
-					.getFilterData().categoryBits == Const.BIT_FROG_CLONER))
-					|| ((fb.getFilterData().categoryBits == Const.BIT_ROOM) && (fa
-							.getFilterData().categoryBits == Const.BIT_FROG_CLONER))) {
+			if (((fa.getFilterData().categoryBits == Const.BIT_ROOM)
+					&& (fb.getFilterData().categoryBits == Const.BIT_FROG_CLONER))
+					|| ((fb.getFilterData().categoryBits == Const.BIT_ROOM)
+							&& (fa.getFilterData().categoryBits == Const.BIT_FROG_CLONER))) {
 				AudioManager.instance.playSound(Assets.instance.sound.opop);
 				isClonerScore = true;
 			}
 
 			// Meteor
-			if (((fa.getFilterData().categoryBits == Const.BIT_ROOM) && (fb
-					.getFilterData().categoryBits == Const.BIT_METEOR))
-					|| ((fb.getFilterData().categoryBits == Const.BIT_ROOM) && (fa
-							.getFilterData().categoryBits == Const.BIT_METEOR))) {
-				AudioManager.instance
-						.playSound(Assets.instance.sound.boomAsteroid);
+			if (((fa.getFilterData().categoryBits == Const.BIT_ROOM)
+					&& (fb.getFilterData().categoryBits == Const.BIT_METEOR))
+					|| ((fb.getFilterData().categoryBits == Const.BIT_ROOM)
+							&& (fa.getFilterData().categoryBits == Const.BIT_METEOR))) {
+				AudioManager.instance.playSound(Assets.instance.sound.boomAsteroid);
 				isMeteor = true;
 				WorldManifold manifold = contact.getWorldManifold();
 				colMeteorPoint = manifold.getPoints()[0];
 			}
 
 			// Boost
-			if (((fa.getFilterData().categoryBits == Const.BIT_FROG) && (fb
-					.getFilterData().categoryBits == Const.BIT_BOOST))
-					|| ((fb.getFilterData().categoryBits == Const.BIT_FROG) && (fa
-							.getFilterData().categoryBits == Const.BIT_BOOST))) {
+			if (((fa.getFilterData().categoryBits == Const.BIT_FROG)
+					&& (fb.getFilterData().categoryBits == Const.BIT_BOOST))
+					|| ((fb.getFilterData().categoryBits == Const.BIT_FROG)
+							&& (fa.getFilterData().categoryBits == Const.BIT_BOOST))) {
 				AudioManager.instance.playSound(Assets.instance.sound.boost);
 				isBoost = true;
 			}
@@ -176,8 +172,7 @@ public class Box2dContact implements ContactListener {
 	}
 
 	private int getOppositeIndex(int collidedIndex) {
-		int oppositeIndex = obSpawner.convertSlotIndex(collidedIndex
-				- Const.OBSTACLE_TOTAL / 2);
+		int oppositeIndex = obSpawner.convertSlotIndex(collidedIndex - Const.OBSTACLE_TOTAL / 2);
 		return oppositeIndex;
 	}
 }

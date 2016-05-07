@@ -45,8 +45,8 @@ public abstract class ObstacleSpawner {
 
 	public abstract void update(float delta);
 
-	public abstract void spawnCase(int total, int minGroup, int maxGroup,
-			int minPerGroup, int maxPerGroup, boolean isFirstTime);
+	public abstract void spawnCase(int total, int minGroup, int maxGroup, int minPerGroup, int maxPerGroup,
+			boolean isFirstTime);
 
 	protected abstract void spawnAt(int startIndex, int numObstacle);
 
@@ -61,8 +61,7 @@ public abstract class ObstacleSpawner {
 		if (obstacles.size != 0) {
 			for (int i = 0; i < obstacles.size; i++) {
 				if (!b2dWorld.isLocked()) {
-					b2dWorld.destroyBody(((GeneralObjects) obstacles.get(i))
-							.getEditorBody().getBody());
+					b2dWorld.destroyBody(((BaseObject) obstacles.get(i)).getEditorBody().getBody());
 				}
 			}
 

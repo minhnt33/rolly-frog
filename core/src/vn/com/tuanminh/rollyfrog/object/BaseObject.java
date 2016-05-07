@@ -7,7 +7,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 
-public abstract class GeneralObjects {
+public abstract class BaseObject {
 	protected World b2dWorld;
 	protected Body body;
 	protected EditorBody eBody;
@@ -16,18 +16,18 @@ public abstract class GeneralObjects {
 	protected float radius;
 	protected Vector2 initPos;
 	
-	public GeneralObjects(World world, float x, float y) {
+	public BaseObject(World world, float x, float y) {
 		this.b2dWorld = world;
 		initPos = new Vector2(x / Const.PPM, y / Const.PPM);
 	}
 	
-	public GeneralObjects(World world, float x, float y, float width, float height) {
+	public BaseObject(World world, float x, float y, float width, float height) {
 		this(world, x, y);
 		this.width = width;
 		this.height = height;
 	}
 	
-	public GeneralObjects(World world, float x, float y, float radius) {
+	public BaseObject(World world, float x, float y, float radius) {
 		this(world, x, y);
 		this.radius = radius;
 	}

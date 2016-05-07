@@ -8,7 +8,7 @@ import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 
-public class LaserBody extends GeneralObjects {
+public class LaserBody extends BaseObject {
 	private float angle;
 
 	public LaserBody(World world, float x, float y, float width, float height,

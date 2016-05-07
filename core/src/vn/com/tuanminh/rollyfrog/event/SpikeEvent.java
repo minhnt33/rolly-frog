@@ -31,13 +31,10 @@ public class SpikeEvent extends Event {
 	public void createEvent() {
 		for (int i = 0; i < numEffects; i++) {
 			ParticleEffect effect = new ParticleEffect();
-			effect.load(Gdx.files.internal("particle/bubble.p"),
-					Gdx.files.internal("particle"));
+			effect.load(Gdx.files.internal("particle/bubble.p"), Gdx.files.internal("particle"));
 			effect.scaleEffect(1 / Const.PPM);
-			float randX = Const.CENTER_POINT.x + MathUtils.random(-80f, 80f)
-					/ Const.PPM;
-			float randY = Const.CENTER_POINT.y + MathUtils.random(-80f, 80f)
-					/ Const.PPM;
+			float randX = Const.CENTER_POINT.x + MathUtils.random(-80f, 80f) / Const.PPM;
+			float randY = Const.CENTER_POINT.y + MathUtils.random(-80f, 80f) / Const.PPM;
 			effect.setPosition(randX, randY);
 			effect.start();
 			bubbles.add(effect);

@@ -29,8 +29,8 @@ public class MovableLaser {
 	private Gun gun;
 	private LaserBody laserBd;
 
-	public MovableLaser(GameMode mode, LaserHandler handler,
-			TextureRegion bgReg, TextureRegion overReg, Color color, Gun gun) {
+	public MovableLaser(GameMode mode, LaserHandler handler, TextureRegion bgReg, TextureRegion overReg, Color color,
+			Gun gun) {
 		this.mode = (LaserMode) mode;
 		this.handler = handler;
 		bg = new Sprite(bgReg);
@@ -38,8 +38,7 @@ public class MovableLaser {
 		width = bgReg.getRegionWidth() / handler.PPM;
 		height = bgReg.getRegionHeight() / handler.PPM;
 		this.gun = gun;
-		pos = new Vector2(gun.getEBodyX() - width / 2, gun.getEBodyY() - width
-				/ 2);
+		pos = new Vector2(gun.getEBodyX() - width / 2, gun.getEBodyY() - width / 2);
 
 		// Set size
 		bg.setSize(width, height);
@@ -56,17 +55,12 @@ public class MovableLaser {
 		tween();
 
 		// Laser body
-		laserBd = new LaserBody(mode.getBox2DWorld(), 160f,
-				Const.GAME_HEIGHT / 2, 4f / Const.PPM, 260f / Const.PPM,
+		laserBd = new LaserBody(mode.getBox2DWorld(), 160f, Const.GAME_HEIGHT / 2, 4f / Const.PPM, 260f / Const.PPM,
 				gun.getEBodyAngle());
 		// Revolute joint
-		this.mode
-				.getObstacleSpawner()
-				.getRevoluteJointDef()
-				.initialize(gun.getEditorBody().getBody(), laserBd.getBody(),
-						gun.getEBodyPosition());
-		mode.getBox2DWorld().createJoint(
-				this.mode.getObstacleSpawner().getRevoluteJointDef());
+		this.mode.getObstacleSpawner().getRevoluteJointDef().initialize(gun.getEditorBody().getBody(),
+				laserBd.getBody(), gun.getEBodyPosition());
+		mode.getBox2DWorld().createJoint(this.mode.getObstacleSpawner().getRevoluteJointDef());
 
 		// Add laser into handler
 		handler.lasers.add(this);
@@ -79,17 +73,14 @@ public class MovableLaser {
 		over.setRotation(angle);
 		bg.setPosition(pos.x, pos.y);
 		over.setPosition(pos.x, pos.y);
-		Const.CENTER_POINT.set(160f / Const.PPM, Const.GAME_HEIGHT / 2
-				/ Const.PPM);
+		Const.CENTER_POINT.set(160f / Const.PPM, Const.GAME_HEIGHT / 2 / Const.PPM);
 	}
 
 	public void tween() {
 		Tween.registerAccessor(Sprite.class, new SpriteAccessor());
-		Tween.to(bg, SpriteAccessor.ALPHA, duration).target(1)
-				.ease(TweenEquations.easeOutExpo).repeatYoyo(1, 0)
+		Tween.to(bg, SpriteAccessor.ALPHA, duration).target(1).ease(TweenEquations.easeOutExpo).repeatYoyo(1, 0)
 				.start(handler.manager);
-		Tween.to(over, SpriteAccessor.ALPHA, duration).target(1)
-				.ease(TweenEquations.easeOutExpo).repeatYoyo(1, 0)
+		Tween.to(over, SpriteAccessor.ALPHA, duration).target(1).ease(TweenEquations.easeOutExpo).repeatYoyo(1, 0)
 				.setCallback(new TweenCallback() {
 
 					@Override
@@ -153,8 +144,7 @@ public class MovableLaser {
 							minPerGroup = Const.LASER_MIN_PER_GROUP_8;
 						}
 
-						mode.getObstacleSpawner().spawnCase(maxOneTime,
-								minGroup, maxGroup, minPerGroup, maxPerGroup,
+						mode.getObstacleSpawner().spawnCase(maxOneTime, minGroup, maxGroup, minPerGroup, maxPerGroup,
 								false);
 					}
 				}).start(handler.manager);

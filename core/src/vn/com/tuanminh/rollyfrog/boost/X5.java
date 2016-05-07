@@ -7,7 +7,7 @@ import vn.com.tuanminh.rollyfrog.game.Assets;
 import vn.com.tuanminh.rollyfrog.game.Box2dContact;
 import vn.com.tuanminh.rollyfrog.mode.GameMode;
 import vn.com.tuanminh.rollyfrog.object.Frog;
-import vn.com.tuanminh.rollyfrog.object.GeneralObjects;
+import vn.com.tuanminh.rollyfrog.object.BaseObject;
 import vn.com.tuanminh.rollyfrog.utils.Const;
 
 import com.badlogic.gdx.Gdx;
@@ -23,7 +23,7 @@ import com.badlogic.gdx.physics.box2d.Filter;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Array;
 
-public class X5 extends GeneralObjects implements Boost {
+public class X5 extends BaseObject implements Boost {
 	private GameMode mode;
 	private BoostHandler handler;
 	private ParticleEffect effect;

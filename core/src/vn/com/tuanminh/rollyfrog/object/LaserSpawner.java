@@ -23,9 +23,8 @@ public class LaserSpawner extends ObstacleSpawner {
 		handler = laserMode.getLaserHandler();
 
 		// Spawn gun for the first time
-		this.spawnCase(Const.LASER_MAX_ONE_TIME_1, Const.LASER_MIN_GROUP_1,
-				Const.LASER_MAX_GROUP_1, Const.LASER_MIN_PER_GROUP_1,
-				Const.LASER_MAX_PER_GROUP_1, true);
+		this.spawnCase(Const.LASER_MAX_ONE_TIME_1, Const.LASER_MIN_GROUP_1, Const.LASER_MAX_GROUP_1,
+				Const.LASER_MIN_PER_GROUP_1, Const.LASER_MAX_PER_GROUP_1, true);
 	}
 
 	@Override
@@ -45,8 +44,8 @@ public class LaserSpawner extends ObstacleSpawner {
 	}
 
 	@Override
-	public void spawnCase(int total, int minGroup, int maxGroup,
-			int minPerGroup, int maxPerGroup, boolean isFirstTime) {
+	public void spawnCase(int total, int minGroup, int maxGroup, int minPerGroup, int maxPerGroup,
+			boolean isFirstTime) {
 		// Remove all old spike before spawning
 		this.removeObstacles();
 
@@ -66,8 +65,7 @@ public class LaserSpawner extends ObstacleSpawner {
 		if (curNumSpike > 0) {
 			int curNumSpikeGroup = MathUtils.random(minGroup, maxGroup);
 			for (int i = 0; i < curNumSpikeGroup; i++) {
-				int curSpikePerGroup = MathUtils.random(minPerGroup,
-						maxPerGroup);
+				int curSpikePerGroup = MathUtils.random(minPerGroup, maxPerGroup);
 				curNumSpike -= curSpikePerGroup;
 
 				if (curNumSpike < 0) {
@@ -96,9 +94,8 @@ public class LaserSpawner extends ObstacleSpawner {
 
 			Vector2 point = randPoints.get(index);
 
-			Gun gun = new Gun(b2dWorld, point.x * Const.PPM, point.y
-					* Const.PPM, (Const.CENTER_POINT.sub(point)).angle() - 90,
-					eWorld, mode.getTweenManager());
+			Gun gun = new Gun(b2dWorld, point.x * Const.PPM, point.y * Const.PPM,
+					(Const.CENTER_POINT.sub(point)).angle() - 90, eWorld, mode.getTweenManager());
 
 			// Create revolute joint
 			revoDef.initialize(room.body, gun.getEditorBody().getBody(), point);
@@ -111,8 +108,7 @@ public class LaserSpawner extends ObstacleSpawner {
 			slot[index] = 1;
 
 			// Reset center point
-			Const.CENTER_POINT.set(160f / Const.PPM, Const.GAME_HEIGHT / 2
-					/ Const.PPM);
+			Const.CENTER_POINT.set(160f / Const.PPM, Const.GAME_HEIGHT / 2 / Const.PPM);
 		}
 	}
 
@@ -125,10 +121,8 @@ public class LaserSpawner extends ObstacleSpawner {
 	private void fireLaser() {
 		for (int i = 0; i < obstacles.size; i++) {
 			AudioManager.instance.playSound(Assets.instance.sound.laser);
-			MovableLaser laser = new MovableLaser(mode, handler,
-					Assets.instance.texture.laser_bg,
-					Assets.instance.texture.laser_over, Utils.randomColor(),
-					((Gun) obstacles.get(i)));
+			MovableLaser laser = new MovableLaser(mode, handler, Assets.instance.texture.laser_bg,
+					Assets.instance.texture.laser_over, Utils.randomColor(), ((Gun) obstacles.get(i)));
 		}
 	}
 }
