@@ -17,13 +17,13 @@ import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
 import com.badlogic.gdx.physics.box2d.CircleShape;
 import com.badlogic.gdx.physics.box2d.World;
 
-public class Shield extends BaseObject implements Boost {
+public class ShieldBoost extends BaseObject implements Boost {
 	// private GameMode mode;
 	private BoostHandler handler;
 	private Frog frog;
 	private TimeHelper timer;
 
-	public Shield(BaseGameMode mode, BoostHandler handler, World world, float x,
+	public ShieldBoost(BaseGameMode mode, BoostHandler handler, World world, float x,
 			float y, float radius) {
 		super(world, x, y, radius);
 		// this.mode = mode;

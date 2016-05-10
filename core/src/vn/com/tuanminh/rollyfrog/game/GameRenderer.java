@@ -16,9 +16,9 @@ import vn.com.tuanminh.frogunnerframe.screens.ScreenManager;
 import vn.com.tuanminh.frogunnerframe.transitions.ScreenTransitionFade;
 import vn.com.tuanminh.frogunnerframe.utils.TimeHelper;
 import vn.com.tuanminh.rollyfrog.boost.BoostHandler;
-import vn.com.tuanminh.rollyfrog.boost.Shield;
-import vn.com.tuanminh.rollyfrog.boost.Slow;
-import vn.com.tuanminh.rollyfrog.boost.X5;
+import vn.com.tuanminh.rollyfrog.boost.ShieldBoost;
+import vn.com.tuanminh.rollyfrog.boost.SlowBoost;
+import vn.com.tuanminh.rollyfrog.boost.CloneBoost;
 import vn.com.tuanminh.rollyfrog.event.EventHandler;
 import vn.com.tuanminh.rollyfrog.mode.BaseGameMode;
 import vn.com.tuanminh.rollyfrog.mode.BaseGameMode.STATE;
@@ -729,8 +729,8 @@ public class GameRenderer implements Disposable {
 	}
 
 	private void drawFrogCloner(Batch batch) {
-		if (boostHandler.getCurrentBoost() instanceof X5) {
-			X5 x5 = (X5) boostHandler.getCurrentBoost();
+		if (boostHandler.getCurrentBoost() instanceof CloneBoost) {
+			CloneBoost x5 = (CloneBoost) boostHandler.getCurrentBoost();
 
 			float halfWidth = frogRegion.getRegionWidth() / 2 / Const.PPM;
 			float halfHeight = frogRegion.getRegionHeight() / 2 / Const.PPM;
@@ -750,12 +750,12 @@ public class GameRenderer implements Disposable {
 	}
 
 	private void drawShield(Batch batch) {
-		if (boostHandler.getCurrentBoost() instanceof Shield) {
+		if (boostHandler.getCurrentBoost() instanceof ShieldBoost) {
 
 			float halfWidth = shieldGlow.getRegionWidth() / 2 / Const.PPM;
 			float halfHeight = shieldGlow.getRegionHeight() / 2 / Const.PPM;
 
-			Shield shield = (Shield) boostHandler.getCurrentBoost();
+			ShieldBoost shield = (ShieldBoost) boostHandler.getCurrentBoost();
 
 			if (frog.getMaxLife() == 2) {
 				batch.draw(shieldGlow, frog.getX() - halfWidth, frog.getY() - halfHeight, halfWidth, halfHeight,
@@ -774,7 +774,7 @@ public class GameRenderer implements Disposable {
 	}
 
 	private void drawSlow(Batch batch) {
-		if (boostHandler.getCurrentBoost() instanceof Slow) {
+		if (boostHandler.getCurrentBoost() instanceof SlowBoost) {
 			if (frog.isSlow) {
 				batch.setProjectionMatrix(camUI.combined);
 				batch.draw(iceScreen, 0, 0, 320f, Const.GAME_HEIGHT);

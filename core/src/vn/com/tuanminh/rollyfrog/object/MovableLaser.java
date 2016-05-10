@@ -1,10 +1,10 @@
-package vn.com.tuanminh.rollyfrog.utils;
+package vn.com.tuanminh.rollyfrog.object;
 
 import vn.com.tuanminh.frogunnerframe.tweens.SpriteAccessor;
 import vn.com.tuanminh.rollyfrog.mode.BaseGameMode;
 import vn.com.tuanminh.rollyfrog.mode.LaserMode;
-import vn.com.tuanminh.rollyfrog.object.Gun;
-import vn.com.tuanminh.rollyfrog.object.LaserBody;
+import vn.com.tuanminh.rollyfrog.utils.Const;
+import vn.com.tuanminh.rollyfrog.utils.LaserHandler;
 import aurelienribon.tweenengine.BaseTween;
 import aurelienribon.tweenengine.Tween;
 import aurelienribon.tweenengine.TweenCallback;

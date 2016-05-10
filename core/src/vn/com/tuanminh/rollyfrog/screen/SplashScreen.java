@@ -51,9 +51,11 @@ public class SplashScreen extends AbstractScreen {
 				.getGameHeightWith(stageWidth);
 		stage = new Stage(new FitViewport(stageWidth, stageHeight));
 		Texture splashTex = new Texture(
-				Gdx.files.internal("texture/splash.png"));
+				Gdx.files.internal("texture/ict.png"));
 		splashTex.setFilter(TextureFilter.Linear, TextureFilter.Linear);
 		splash = new Image(splashTex);
+		splash.setWidth(stageWidth / 1.2f);
+		splash.setHeight(stageHeight / 5f);
 		splash.setPosition(stageWidth / 2 - splash.getWidth() / 2, stageHeight
 				/ 2 - splash.getHeight() / 2);
 		splash.getColor().a = 0;

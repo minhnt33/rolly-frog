@@ -83,5 +83,7 @@ public class GamePreferences {
 
 	public void clearAll() {
 		prefs.clear();
+		prefs.flush();
+		load();
 	}
 }

@@ -3,8 +3,6 @@ package vn.com.tuanminh.rollyfrog.mode;
 import vn.com.tuanminh.rollyfrog.object.MathSpawner;
 import vn.com.tuanminh.rollyfrog.utils.Const;
 
-import com.badlogic.gdx.Gdx;
-
 public class MathMode extends BaseGameMode {
 	public enum LEVEL {
 		LV1, LV2, LV3, LV4, LV5, LV6

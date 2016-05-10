@@ -32,9 +32,7 @@ import vn.com.tuanminh.rollyfrog.mode.BaseGameMode;
 import vn.com.tuanminh.rollyfrog.mode.BaseGameMode.STATE;
 import vn.com.tuanminh.rollyfrog.mode.LaserMode;
 import vn.com.tuanminh.rollyfrog.mode.MathMode;
-import vn.com.tuanminh.rollyfrog.mode.MummyMode;
 import vn.com.tuanminh.rollyfrog.mode.SpikeMode;
-import vn.com.tuanminh.rollyfrog.mode.SwatMode;
 import vn.com.tuanminh.rollyfrog.utils.AudioManager;
 import vn.com.tuanminh.rollyfrog.utils.Const;
 import vn.com.tuanminh.rollyfrog.utils.GamePreferences;
@@ -95,10 +93,7 @@ public class GameScreen extends AbstractScreen {
 		} else if (LevelScreen.modeID == Const.MATH_MODE_ID) {
 			mode = new MathMode();
 			bgMusic = Assets.instance.music.mathMode;
-		} else if (LevelScreen.modeID == Const.MUMMY_MODE_ID)
-			mode = new MummyMode();
-		else if (LevelScreen.modeID == Const.SWAT_MODE_ID)
-			mode = new SwatMode();
+		}
 
 		AudioManager.instance.playMusic(bgMusic, 0.7f);
 

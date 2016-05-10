@@ -7,7 +7,6 @@ import vn.com.tuanminh.rollyfrog.mode.LaserMode;
 import vn.com.tuanminh.rollyfrog.utils.AudioManager;
 import vn.com.tuanminh.rollyfrog.utils.Const;
 import vn.com.tuanminh.rollyfrog.utils.LaserHandler;
-import vn.com.tuanminh.rollyfrog.utils.MovableLaser;
 import vn.com.tuanminh.rollyfrog.utils.Utils;
 
 import com.badlogic.gdx.math.MathUtils;
@@ -121,8 +120,8 @@ public class LaserSpawner extends ObstacleSpawner {
 	private void fireLaser() {
 		for (int i = 0; i < obstacles.size; i++) {
 			AudioManager.instance.playSound(Assets.instance.sound.laser);
-			MovableLaser laser = new MovableLaser(mode, handler, Assets.instance.texture.laser_bg,
-					Assets.instance.texture.laser_over, Utils.randomColor(), ((Gun) obstacles.get(i)));
+			new MovableLaser(mode, handler, Assets.instance.texture.laser_bg, Assets.instance.texture.laser_over,
+					Utils.randomColor(), ((Gun) obstacles.get(i)));
 		}
 	}
 }

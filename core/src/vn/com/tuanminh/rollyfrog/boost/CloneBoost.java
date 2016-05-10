@@ -23,7 +23,7 @@ import com.badlogic.gdx.physics.box2d.Filter;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Array;
 
-public class X5 extends BaseObject implements Boost {
+public class CloneBoost extends BaseObject implements Boost {
 	private BaseGameMode mode;
 	private BoostHandler handler;
 	private ParticleEffect effect;
@@ -33,7 +33,7 @@ public class X5 extends BaseObject implements Boost {
 	private int dieCount = 0;
 	private final float initForce = 2.5f;
 
-	public X5(BaseGameMode mode, BoostHandler handler, World world, float x,
+	public CloneBoost(BaseGameMode mode, BoostHandler handler, World world, float x,
 			float y, float radius) {
 		super(world, x, y, radius);
 		this.mode = mode;

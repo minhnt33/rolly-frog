@@ -19,7 +19,7 @@ public class Const {
 	public static final Vector2 CENTER_POINT = new Vector2(160f / PPM, GAME_HEIGHT / 2 / PPM);
 
 	//Score Increament
-	public static final int SCORE_INCREMENT = 2;
+	public static final int SCORE_INCREMENT = 1;
 	
 	// Amount of mode and frog
 	public static final int NUMBER_OF_MODE = 3;

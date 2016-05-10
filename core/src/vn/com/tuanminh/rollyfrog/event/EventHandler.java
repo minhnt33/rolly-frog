@@ -21,10 +21,6 @@ public class EventHandler {
 			event = new SpikeEvent(mode.getTweenManager());
 		else if (mode.getID() == Const.LASER_MODE_ID)
 			event = new LaserEvent(mode.getBox2DWorld(), manager);
-		else if (mode.getID() == Const.MUMMY_MODE_ID)
-			event = new MummyEvent(mode.getTweenManager());
-		else if (mode.getID() == Const.MATH_MODE_ID)
-			event = new MathEvent(mode.getTweenManager());
 	}
 
 	public void updateEvent(Batch batch, float delta) {

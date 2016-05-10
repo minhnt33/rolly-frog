@@ -56,11 +56,11 @@ public class BoostHandler {
 				Const.CENTER_POINT.y * Const.PPM + MathUtils.random(-70f, 70f));
 		int i = MathUtils.random(1, 3);
 		if (i == 1) {
-			curBoost = new Shield(mode, this, b2dWorld, pos.x, pos.y, 20f);
+			curBoost = new ShieldBoost(mode, this, b2dWorld, pos.x, pos.y, 20f);
 		} else if (i == 2) {
-			curBoost = new X5(mode, this, b2dWorld, pos.x, pos.y, 20f);
+			curBoost = new CloneBoost(mode, this, b2dWorld, pos.x, pos.y, 20f);
 		} else {
-			curBoost = new Slow(mode, this, b2dWorld, pos.x, pos.y, 20f);
+			curBoost = new SlowBoost(mode, this, b2dWorld, pos.x, pos.y, 20f);
 		}
 		hasBoost = true;
 	}

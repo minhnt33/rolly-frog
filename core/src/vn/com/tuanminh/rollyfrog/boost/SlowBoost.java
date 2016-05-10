@@ -18,14 +18,14 @@ import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
 import com.badlogic.gdx.physics.box2d.CircleShape;
 import com.badlogic.gdx.physics.box2d.World;
 
-public class Slow extends BaseObject implements Boost {
+public class SlowBoost extends BaseObject implements Boost {
 	private BoostHandler handler;
 	private Frog frog;
 	private TimeHelper timer;
 	public float duration = Const.SLOW_TIME_MILLIS;
 	private Vector2 tmpVel;
 
-	public Slow(BaseGameMode mode, BoostHandler handler, World world, float x,
+	public SlowBoost(BaseGameMode mode, BoostHandler handler, World world, float x,
 			float y, float radius) {
 		super(world, x, y, radius);
 		this.handler = handler;

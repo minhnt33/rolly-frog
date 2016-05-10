@@ -1,6 +1,7 @@
 package vn.com.tuanminh.rollyfrog.utils;
 
 import aurelienribon.tweenengine.TweenManager;
+import vn.com.tuanminh.rollyfrog.object.MovableLaser;
 
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.Batch;
